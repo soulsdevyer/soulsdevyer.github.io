@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Data Display</title>
+</head>
+<body>
+    <h1>Arduino Data Display</h1>
+    <div id="sensorData"></div>
+
+    <script>
+        const sensorDataElem = document.getElementById('sensorData');
+
+        // Establish WebSocket connection
+        const ws = new WebSocket('ws://localhost:8080/arduino');
+        console.log(ws)
+        if (ws){
+            sensorDataElem.innerText = 'Test succesful'
+        }
+
+        // Handle messages from the server
+        ws.onmessage = function (event) {
+            sensorDataElem.innerText = `Sensor Data: ${event.data}`;
+        };
+    </script>
+</body>
+</html>

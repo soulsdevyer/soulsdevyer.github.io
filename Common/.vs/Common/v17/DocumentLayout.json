@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Souls\\Downloads\\Common\\Common\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EE1F9C91-135E-4546-BA1C-DE2FB2B2AF34}|Common.csproj|c:\\users\\souls\\downloads\\common\\common\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE1F9C91-135E-4546-BA1C-DE2FB2B2AF34}|Common.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE1F9C91-135E-4546-BA1C-DE2FB2B2AF34}|Common.csproj|c:\\users\\souls\\downloads\\common\\common\\common.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{EE1F9C91-135E-4546-BA1C-DE2FB2B2AF34}|Common.csproj|solutionrelative:common.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Common",
+              "DocumentMoniker": "C:\\Users\\Souls\\Downloads\\Common\\Common\\Common.csproj",
+              "RelativeDocumentMoniker": "Common.csproj",
+              "ToolTip": "C:\\Users\\Souls\\Downloads\\Common\\Common\\Common.csproj",
+              "RelativeToolTip": "Common.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-23T14:52:42.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Souls\\Downloads\\Common\\Common\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Souls\\Downloads\\Common\\Common\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAkwDoAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T14:33:06.811Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

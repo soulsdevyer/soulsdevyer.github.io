@@ -1,28 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/VJsmTjwfA17/pQ5/HIau225QwvVjYmUER69BDDms6nuvBp7LRbrP+JCrks17KwDC0uMfiJyICclgL0itRl1kg==",
+  "dgSpecHash": "bLPIdkt0HzztbXpX7HDP2JzfMdGqCxeYGrK1FFoN4+npB4EoKOyVfzzIKhnbg5Bs3ygdDBl0S27y1Yiq1OCKyg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Souls\\Downloads\\Common\\Common\\Common.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Souls\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
-    "C:\\Users\\Souls\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
-    "C:\\Users\\Souls\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\8.0.0\\runtime.linux-x64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
-    "C:\\Users\\Souls\\.nuget\\packages\\runtime.native.system.io.ports\\8.0.0\\runtime.native.system.io.ports.8.0.0.nupkg.sha512",
-    "C:\\Users\\Souls\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\8.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
-    "C:\\Users\\Souls\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\8.0.0\\runtime.osx-x64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
-    "C:\\Users\\Souls\\.nuget\\packages\\system.io.ports\\8.0.0\\system.io.ports.8.0.0.nupkg.sha512",
-    "C:\\Users\\Souls\\.nuget\\packages\\websocketsharp\\1.0.3-rc11\\websocketsharp.1.0.3-rc11.nupkg.sha512"
-  ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'WebSocketSharp 1.0.3-rc11' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
-      "libraryId": "WebSocketSharp",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "projectFilePath": "C:\\Programming\\mecalearn-integration\\backend\\Common.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
 }

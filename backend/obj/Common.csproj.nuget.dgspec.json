@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Souls\\Downloads\\Common\\Common\\Common.csproj": {}
+    "C:\\Programming\\mecalearn-integration\\backend\\Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Souls\\Downloads\\Common\\Common\\Common.csproj": {
+    "C:\\Programming\\mecalearn-integration\\backend\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Souls\\Downloads\\Common\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Programming\\mecalearn-integration\\backend\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\Souls\\Downloads\\Common\\Common\\Common.csproj",
-        "packagesPath": "C:\\Users\\Souls\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Souls\\Downloads\\Common\\Common\\obj\\",
+        "projectPath": "C:\\Programming\\mecalearn-integration\\backend\\Common.csproj",
+        "packagesPath": "C:\\Users\\marce\\.nuget\\packages\\",
+        "outputPath": "C:\\Programming\\mecalearn-integration\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Souls\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marce\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -38,26 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "System.IO.Ports": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "WebSocketSharp": {
-              "target": "Package",
-              "version": "[1.0.3-rc11, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -69,12 +54,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

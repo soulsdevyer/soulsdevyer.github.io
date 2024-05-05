@@ -1,10 +1,4 @@
-﻿using System;
-using System.IO.Ports;
-using System.Net;
-using WebSocketSharp;
-using WebSocketSharp.Server;
-
-namespace ArduinoWebSocketServer
+﻿namespace ArduinoWebSocketServer
 {
     class Program
     {

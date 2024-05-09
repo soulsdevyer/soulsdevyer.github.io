@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>Apps Integration</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+
+<body>
+<div  class="contentBox" id="contentBox">
+        
+        
+
+        <script type="text/javascript" src="https://www.geogebra.org/apps/deployggb.js"></script>
+        <script type="text/javascript">
+function perspective(p){
+ggbApplet.setPerspective(p);
+}
+                var parameters = {
+                        "id":"ggbApplet",
+                        "appName":"graphing",
+                        "width":800,
+                        "height":550,
+                        "showToolBar":true,
+                        "borderColor":null,
+                        "showMenuBar":true,
+                        "allowStyleBar":true,
+                        "showAlgebraInput":true,
+                        "enableLabelDrags":false,
+                        "enableShiftDragZoom":true,
+                        "capturingThreshold":null,
+                        "showToolBarHelp":false,
+                        "errorDialogsActive":true,
+                        "showTutorialLink":true,
+                        "showLogging":true,
+                        "useBrowserForJS":false};
+
+                var applet = new GGBApplet(parameters,true);
+               //  when used with Math Apps Bundle, uncomment this:
+               //  applet.setHTML5Codebase('GeoGebra/HTML5/5.0/web3d/');
+
+                window.onload = function() { applet.inject('applet_container'); }
+
+        </script>
+
+
+      <p>  <div id="applet_container"></div></p>
+</div>
+</body>
+
+</html>

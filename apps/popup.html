@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draggable Popup</title>
+    <style>
+      #popup {
+        display: none;
+        position: absolute;
+        background-color: #f4f4f4;
+        padding: 10px;
+        border: 1px solid #ccc;
+        cursor: move;
+      }
+
+      #close-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="open-btn">Open Popup</button>
+
+    <div id="popup">
+      <div id="close-btn">X</div>
+      <iframe
+        id="popup-content"
+        src="popup-content.html"
+        width="800"
+        height="550"
+      ></iframe>
+    </div>
+
+    <script>
+      // Get the elements
+      var openBtn = document.getElementById("open-btn");
+      var popup = document.getElementById("popup");
+      var closeBtn = document.getElementById("close-btn");
+      var popupContent = document.getElementById("popup-content");
+
+      popupContent.getAttribute("width");
+
+      // Function to open the popup
+      openBtn.addEventListener("click", function () {
+        popup.style.display = "block";
+      });
+
+      // Function to close the popup
+      closeBtn.addEventListener("click", function () {
+        popup.style.display = "none";
+      });
+
+      // Initialize variables to store mouse position and popup position
+      var mouseX = 0,
+        mouseY = 0,
+        popupX = 0,
+        popupY = 0;
+      var dragging = false;
+
+      // Function to handle mouse down event
+      function onMouseDown(e) {
+        dragging = true;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        popupX = popup.offsetLeft;
+        popupY = popup.offsetTop;
+      }
+
+      // Function to handle mouse move event
+      function onMouseMove(e) {
+        if (dragging) {
+          var deltaX = e.clientX - mouseX;
+          var deltaY = e.clientY - mouseY;
+          popup.style.left = popupX + deltaX + "px";
+          popup.style.top = popupY + deltaY + "px";
+        }
+      }
+
+      // Function to handle mouse up event
+      function onMouseUp() {
+        dragging = false;
+      }
+
+      // Attach event listeners
+      popup.addEventListener("mousedown", onMouseDown);
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
+    </script>
+  </body>
+</html>

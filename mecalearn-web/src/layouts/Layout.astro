@@ -5,9 +5,9 @@ interface Props {
 
 const { title } = Astro.props;
 
-import Navbar from "../components/Navbar.astro";
-import Sidebar from "../components/Sidebar.astro";
+import Navbar from "../components/Nav-Sidebar.astro";
 import Footer from "../components/Footer.astro";
+import ToolDial from "../components/ToolDial.astro";
 ---
 
 <!doctype html>
@@ -21,9 +21,8 @@ import Footer from "../components/Footer.astro";
     <title>{title}</title>
   </head>
   <body>
-    <Navbar />
+    <Navbar id="navbar" />
     <div class="main-content">
-      <Sidebar />
       <slot />
     </div>
 
@@ -31,6 +30,7 @@ import Footer from "../components/Footer.astro";
       is:inline
       src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"
     ></script>
+    <ToolDial />
     <Footer />
   </body>
 </html>
@@ -54,7 +54,7 @@ import Footer from "../components/Footer.astro";
   }
   html {
     font-family: system-ui, sans-serif;
-    background: #13151a;
+    background: var(--accent);
   }
   code {
     font-family:

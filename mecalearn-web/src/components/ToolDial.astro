@@ -1,7 +1,30 @@
-<div data-dial-init class="fixed end-6 bottom-6 group">
+<div data-dial-init class="fixed top-6 end-6 group" style="margin-top: 75px;">
+  <button
+    type="button"
+    data-dial-toggle="speed-dial-menu-top-right"
+    aria-controls="speed-dial-menu-top-right"
+    aria-expanded="false"
+    class="flex items-center justify-center text-white bg-blue-700 rounded-full w-14 h-14 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
+  >
+    <svg
+      class="w-5 h-5 transition-transform group-hover:rotate-45"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 18 18"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M9 1v16M1 9h16"></path>
+    </svg>
+    <span class="sr-only">Open actions menu</span>
+  </button>
   <div
-    id="speed-dial-menu-default"
-    class="flex flex-col items-center hidden mb-4 space-y-2"
+    id="speed-dial-menu-top-right"
+    class="flex flex-col items-center hidden mt-4 space-y-2"
   >
     <button
       type="button"
@@ -20,7 +43,6 @@
           d="M14.419 10.581a3.564 3.564 0 0 0-2.574 1.1l-4.756-2.49a3.54 3.54 0 0 0 .072-.71 3.55 3.55 0 0 0-.043-.428L11.67 6.1a3.56 3.56 0 1 0-.831-2.265c.006.143.02.286.043.428L6.33 6.218a3.573 3.573 0 1 0-.175 4.743l4.756 2.491a3.58 3.58 0 1 0 3.508-2.871Z"
         ></path>
       </svg>
-      <span class="sr-only">Share</span>
     </button>
     <div
       id="tooltip-share"
@@ -119,27 +141,4 @@
       <div class="tooltip-arrow" data-popper-arrow></div>
     </div>
   </div>
-  <button
-    type="button"
-    data-dial-toggle="speed-dial-menu-default"
-    aria-controls="speed-dial-menu-default"
-    aria-expanded="false"
-    class="flex items-center justify-center text-white bg-blue-700 rounded-full w-14 h-14 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
-  >
-    <svg
-      class="w-5 h-5 transition-transform group-hover:rotate-45"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 18 18"
-    >
-      <path
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M9 1v16M1 9h16"></path>
-    </svg>
-    <span class="sr-only">Open actions menu</span>
-  </button>
 </div>

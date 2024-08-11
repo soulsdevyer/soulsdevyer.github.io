@@ -5,8 +5,8 @@ interface Props {
 
 const { title } = Astro.props;
 
-import Navbar from "../components/Nav-Sidebar.astro";
 import Footer from "../components/Footer.astro";
+import NavSidebar from "../components/Nav-Sidebar.astro";
 import ToolDial from "../components/ToolDial.astro";
 ---
 
@@ -17,11 +17,17 @@ import ToolDial from "../components/ToolDial.astro";
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
-    <Navbar id="navbar" />
+    <NavSidebar />
     <div class="main-content">
       <slot />
     </div>

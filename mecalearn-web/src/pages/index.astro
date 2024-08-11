@@ -1,17 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ImageCard from "../components/ImageCard.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
+import Paragraph from "../components/Paragraph.astro";
+import ImageCard from "../components/ImageCard.astro";
+import Heading from "../components/Heading.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Bienvenido a MecaLearn!">
   <main>
     <ul role="list" class="link-Card-grid">
       <!-- <ImageCard img="../../assets/courseIntros/introToMecalearn.png" />
       <ImageCard img="../../assets/courseIntros/introToMecalearn.png" /> -->
 
-      <HorizontalCard img="../../assets/courseIntros/introToMecalearn.png" />
-      <HorizontalCard img="../../assets/courseIntros/introToMecalearn.png" />
+      <HorizontalCard
+        img="../../assets/courseIntros/introToMecalearn.png"
+        title="Introducción a MecaLearn"
+        body="Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!"
+      />
+      <HorizontalCard
+        img="../../assets/courseIntros/introToMecalearn.png"
+        title="Introducción a la Física"
+        body="Listo para dar tus primeros pasos? En esta unidad, cubrirás la conversión de unidades y los vectores, que ter permitirán volar en tu formación!"
+      />
     </ul>
   </main>
 

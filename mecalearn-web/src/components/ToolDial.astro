@@ -1,20 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
+
 ---
 
-<!-- <Layout>
-  <slot name="applet" slot="ggbApplet">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio magnam minus
-    excepturi, nostrum natus aperiam ducimus optio officiis molestias qui
-    possimus totam dolorem culpa laudantium sunt similique eligendi recusandae
-    aliquid!
-  </slot>
-</Layout> -->"<script
-  is:inline
-  src="https://www.geogebra.org/apps/deployggb.js"></script>
+<script is:inline src="https://www.geogebra.org/apps/deployggb.js"></script>
 
 <div data-dial-init class="fixed top-6 end-6 group" style="margin-top: 75px;">
   <button
+    id="closeDial"
     type="button"
     data-dial-toggle="speed-dial-menu-top-right"
     aria-controls="speed-dial-menu-top-right"
@@ -74,7 +66,10 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </div>
 </div>
-<div id="ggb-element"></div>
+<div id="draggableGGB">
+  <div id="draggableGGBHeader">GeoGebra (BETA)</div>
+  <div id="ggb-element"></div>
+</div>
 
 <script>
   declare const GGBApplet: any;
@@ -88,7 +83,75 @@ import Layout from "../layouts/Layout.astro";
   };
   var applet = new GGBApplet(params, true);
   document.getElementById("ggbButton")?.addEventListener("click", function () {
+    document.getElementById("draggableGGB").style.display = "block";
     applet.inject("ggb-element");
-    alert("works");
+  });
+
+  dragElement(document.getElementById("draggableGGB"));
+
+  function dragElement(element: any) {
+    var pos1 = 0,
+      pos2 = 0,
+      pos3 = 0,
+      pos4 = 0;
+    if (document.getElementById(element.id + "Header")) {
+      // if present, the header is where you move the DIV from:
+      document.getElementById(element.id + "Header").onmousedown =
+        dragMouseDown;
+    } else {
+      element.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e: any) {
+      e = e || window.event;
+      e.preventDefault();
+
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+
+      document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e: any) {
+      e = e || window.event;
+      e.preventDefault();
+
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+
+      element.style.top = element.offsetTop - pos2 + "px";
+      element.style.left = element.offsetLeft - pos1 + "px";
+    }
+
+    function closeDragElement() {
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+
+  document.getElementById("closeDial").addEventListener("click", function () {
+    document.getElementById("draggableGGB").style.display = "none";
   });
 </script>
+
+<style>
+  #draggableGGB {
+    display: none;
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+  }
+
+  #draggableGGBHeader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #1f2937;
+    color: #fff;
+  }
+</style>

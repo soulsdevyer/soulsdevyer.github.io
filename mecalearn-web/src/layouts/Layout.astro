@@ -1,6 +1,6 @@
 ---
 interface Props {
-  title: string;
+  title?: string;
 }
 
 const { title } = Astro.props;
@@ -17,12 +17,7 @@ import ToolDial from "../components/ToolDial.astro";
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-    />
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -37,6 +32,7 @@ import ToolDial from "../components/ToolDial.astro";
       src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"
     ></script>
     <ToolDial />
+
     <Footer />
   </body>
 </html>

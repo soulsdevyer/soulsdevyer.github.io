@@ -34,7 +34,7 @@
     class="flex flex-col items-center hidden mt-4 space-y-2"
   >
     <button
-      id="ggbButton"
+      id="graphingButton"
       type="button"
       data-tooltip-target="tooltip-print"
       data-tooltip-placement="left"
@@ -64,6 +64,38 @@
       GeoGebra
       <div class="tooltip-arrow" data-popper-arrow></div>
     </div>
+
+    <button
+      id="geometryButton"
+      type="button"
+      class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400"
+    >
+      Geometry
+    </button>
+
+    <button
+      id="casButton"
+      type="button"
+      class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400"
+    >
+      CAS
+    </button>
+
+    <button
+      id="3dButton"
+      type="button"
+      class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400"
+    >
+      3D
+    </button>
+
+    <button
+      id="scientificButton"
+      type="button"
+      class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400"
+    >
+      Scientific
+    </button>
   </div>
 </div>
 <div id="draggableGGB">
@@ -73,18 +105,41 @@
 
 <script>
   declare const GGBApplet: any;
-  var params = {
-    appName: "graphing",
-    width: 800,
-    height: 600,
-    showToolBar: true,
-    showAlgebraInput: true,
-    showMenuBar: true,
-  };
-  var applet = new GGBApplet(params, true);
-  document.getElementById("ggbButton")?.addEventListener("click", function () {
-    document.getElementById("draggableGGB").style.display = "block";
-    applet.inject("ggb-element");
+
+  function getAppNameById(buttonId: any) {
+    switch (buttonId) {
+      case "graphingButton":
+        return "graphing";
+      case "geometryButton":
+        return "geometry";
+      case "casButton":
+        return "cas";
+      case "3dButton":
+        return "3d";
+      case "scientificButton":
+        return "scientific";
+      default:
+        return "graphing"; // default appName
+    }
+  }
+
+  document.querySelectorAll("button").forEach((button) => {
+    if (!button.getAttribute("role")) {
+      button.addEventListener("click", function () {
+        const appName = getAppNameById(button.id);
+        const params = {
+          appName: appName,
+          width: 800,
+          height: 600,
+          showToolBar: true,
+          showAlgebraInput: true,
+          showMenuBar: true,
+        };
+        const applet = new GGBApplet(params, true);
+        document.getElementById("draggableGGB").style.display = "block";
+        applet.inject("ggb-element");
+      });
+    }
   });
 
   dragElement(document.getElementById("draggableGGB"));

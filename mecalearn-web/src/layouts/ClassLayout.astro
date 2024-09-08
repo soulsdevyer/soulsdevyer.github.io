@@ -13,7 +13,7 @@ import type { NavItems } from "../types/types";
 const sidebarItems: NavItems[] = [
   {
     label: "Introducción a MecaLearn",
-    href: "/mecalearnIntro",
+    href: "#test",
     iconPath1:
       "M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z",
     iconPath2:
@@ -60,7 +60,7 @@ const sidebarItems: NavItems[] = [
   <body>
     <NavSidebar items={sidebarItems} />
     <div class="main-content">
-      <slot name="home" />
+      <slot />
     </div>
 
     <script

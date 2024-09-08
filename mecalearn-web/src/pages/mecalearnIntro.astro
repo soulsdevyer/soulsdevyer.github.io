@@ -1,43 +1,54 @@
 ---
-import type { SubjectCards } from "../types/types";
 import Layout from "../layouts/Layout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
+import Heading from "../components/Heading.astro";
+import Paragraph from "../components/Paragraph.astro";
+import Heading2 from "../components/Heading2.astro";
 
-const cards: SubjectCards[] = [
-  {
-    img: "../../assets/courseIntros/introToMecalearn.png",
-
-    title: "Introducción a MecaLearn",
-    label: "Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!",
-    href: "/mecalearnIntro"
-  }
-]
+const lorem: string = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid iure quibusdam molestias, debitis, a maiores eligendi, quaerat aliquam libero animi nostrum? Veniam, sunt minima ipsa repudiandae cum magni eligendi. Doloremque."
 ---
 
 <Layout title="Bienvenido a MecaLearn!">
   
 
-          <ul role="list" class="link-Card-grid" style="padding: 15px;">
-          <HorizontalCard
-          card={cards}>
-        </HorizontalCard>
+<div class="parent">
+        <div class="div2">
+          <Heading></Heading>
+          <Heading2
+          title="hola"></Heading2>
+        </div>
+    <div class="div3">
+      <HorizontalCard
+        img="../../assets/courseIntros/introToMecalearn.png"
+        title="Introducción a MecaLearn"
+        body="Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!"
+        href="/indexcopy"
+      /><HorizontalCard
+        img="../../assets/courseIntros/introToMecalearn.png"
+        title="Introducción a MecaLearn"
+        body="Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!"
+        href="/indexcopy"
+      /><HorizontalCard
+        img="../../assets/courseIntros/introToMecalearn.png"
+        title="Introducción a MecaLearn"
+        body="Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!"
+        href="/indexcopy"
+      />
 
-        <HorizontalCard
-          card={cards}>
-        </HorizontalCard>
+      <Heading2 title="hello">
 
-        <HorizontalCard
-          card={cards}>
-        </HorizontalCard>
-        </ul>
-          
+      </Heading2>
+    </div>
+</div>
     
-  <main>
-    
-  </main>
 
-  
   <style>
+        
+        
+        
+        
+        
+
     main {
       margin: auto;
       padding: 1rem;
@@ -93,7 +104,7 @@ const cards: SubjectCards[] = [
     }
     .link-Card-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(36ch, 1fr));
       gap: 0.75rem;
       padding: 0;
     }

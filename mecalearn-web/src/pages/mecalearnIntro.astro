@@ -1,0 +1,170 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Heading from "../components/Heading.astro";
+import Paragraph from "../components/Paragraph.astro";
+import Heading2 from "../components/Heading2.astro";
+import ClassLayout from "../layouts/ClassLayout.astro";
+const lorem: string =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi provident autem aliquid quibusdam atque, minima a quos vero. Ratione nisi numquam voluptatum atque quos facilis fugiat inventore laboriosam? Ut, accusantium.";
+const title: string = "Title";
+---
+
+<ClassLayout title="Bienvenido a MecaLearn!">
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <Heading level={1} class="text-gradient">Aprende con MecaLearn</Heading>
+      <Paragraph text={lorem} />
+    </section>
+
+    <!-- Featured Courses Section -->
+    <section class="featured">
+      <Heading title={title} />
+      <div class="link-Card-grid">
+        <!-- Placeholder for course cards -->
+        <div class="card">
+          <h3>Curso de Introducción a la Programación</h3>
+          <p>
+            Aprende los conceptos básicos de programación con ejercicios
+            prácticos.
+          </p>
+          <a href="/programming-intro">Ver Curso</a>
+        </div>
+        <div class="card">
+          <h3>Matemáticas para Principiantes</h3>
+          <p>
+            Refuerza tus conocimientos en matemáticas con lecciones
+            interactivas.
+          </p>
+          <a href="/math-basics">Ver Curso</a>
+        </div>
+        <div class="card">
+          <h3>Historia Mundial</h3>
+          <p>
+            Explora la historia del mundo con recursos multimedia y
+            evaluaciones.
+          </p>
+          <a href="/world-history">Ver Curso</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+      <Heading2 title={title} />
+      <!-- Placeholder for video embeds -->
+      <div class="video">
+        <h3>Introducción a la Programación</h3>
+        <video controls>
+          <source src="https://www.example.com/video1.mp4" type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
+      <div class="video">
+        <h3>Matemáticas para Principiantes</h3>
+        <video controls>
+          <source src="https://www.example.com/video2.mp4" type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="image-gallery">
+      <Heading2 title={title} />
+      <div class="gallery-grid">
+        <!-- Placeholder for images -->
+        <div class="image">
+          <img
+            src="https://www.example.com/image1.jpg"
+            alt="Imagen de programación"
+          />
+        </div>
+        <div class="image">
+          <img
+            src="https://www.example.com/image2.jpg"
+            alt="Imagen de matemáticas"
+          />
+        </div>
+        <div class="image">
+          <img
+            src="https://www.example.com/image3.jpg"
+            alt="Imagen de historia"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Instructions Section -->
+    <section class="instructions">
+      <Heading2 title={title} />
+      <Paragraph text={lorem} />
+    </section>
+  </main>
+
+  <style>
+    main {
+      margin: auto;
+      padding: 1rem;
+      width: 800px;
+      max-width: calc(100% - 2rem);
+      color: white;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .featured {
+      margin-bottom: 2rem;
+    }
+    .link-Card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      background: #fff;
+      color: #000;
+    }
+    .video-section {
+      margin-bottom: 2rem;
+    }
+    .video {
+      margin-bottom: 1rem;
+    }
+    .image-gallery {
+      margin-bottom: 2rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+    .instructions {
+      margin-bottom: 2rem;
+      border: 1px solid rgba(var(--accent-light), 25%);
+      background: linear-gradient(
+        rgba(var(--accent-dark), 66%),
+        rgba(var(--accent-dark), 33%)
+      );
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+    .instructions code {
+      font-size: 0.8em;
+      font-weight: bold;
+      background: rgba(var(--accent-light), 12%);
+      color: rgb(var(--accent-light));
+      border-radius: 4px;
+      padding: 0.3em 0.4em;
+    }
+    .instructions strong {
+      color: rgb(var(--accent-light));
+    }
+  </style>
+</ClassLayout>

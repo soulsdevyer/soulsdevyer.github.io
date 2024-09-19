@@ -2,14 +2,23 @@
 import Heading from "../components/Heading.astro";
 import Paragraph from "../components/Paragraph.astro";
 import ClassLayout from "../layouts/ClassLayout.astro";
+import Video from "../components/Video.astro";
 
-const introductionText: string = "En esta lección aprenderás los conceptos fundamentales de programación: variables, tipos de datos, y estructuras de control básicas. Estos elementos son esenciales para escribir programas eficientes y bien estructurados."
+const introductionText: string =
+  "En esta lección aprenderás los conceptos fundamentales de programación: variables, tipos de datos, y estructuras de control básicas. Estos elementos son esenciales para escribir programas eficientes y bien estructurados.";
 const images = [
-  { src: "https://www.example.com/image1.jpg", alt: "Concepto de Programación" },
-  { src: "https://www.example.com/image2.jpg", alt: "Variables en Programación" },
+  {
+    src: "https://www.example.com/image1.jpg",
+    alt: "Concepto de Programación",
+  },
+  {
+    src: "https://www.example.com/image2.jpg",
+    alt: "Variables en Programación",
+  },
   { src: "https://www.example.com/image3.jpg", alt: "Estructuras de Control" },
 ];
-const restOfLecture: string = "Continúa practicando estos conceptos resolviendo problemas de programación simples. En este ejercicio escribirás tu primer programa que imprimirá 'Hola Mundo' usando un lenguaje de programación de tu elección."
+const restOfLecture: string =
+  "Continúa practicando estos conceptos resolviendo problemas de programación simples. En este ejercicio escribirás tu primer programa que imprimirá 'Hola Mundo' usando un lenguaje de programación de tu elección.";
 ---
 
 <ClassLayout title="Introducción a MecaLearn">
@@ -17,16 +26,13 @@ const restOfLecture: string = "Continúa practicando estos conceptos resolviendo
     <!-- First Row: Video and Introduction -->
     <section class="row">
       <!-- Video Section -->
-      <div class="video-container">
-        <iframe width="800" height="450" src="https://www.youtube.com/embed/ylErHxQjodw?si=vgZosa-a9HzaJmin" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
+      <Video
+        url="https://www.youtube.com/embed/ylErHxQjodw?si=vgZosa-a9HzaJmin"
+      />
 
       <!-- Introduction Text -->
       <div class="intro-text">
-        <Heading
-        title="Hello World!"
-        sub="Just"
-        ></Heading>
+        <Heading title="Hello World!" sub="Just" />
         <Paragraph text={introductionText} />
       </div>
     </section>
@@ -35,11 +41,13 @@ const restOfLecture: string = "Continúa practicando estos conceptos resolviendo
     <section class="image-gallery">
       <Heading title="Galería de Imágenes" />
       <div class="gallery-grid">
-        {images.map((image) => (
-          <div class="gallery-item">
-            <img src={image.src} alt={image.alt} />
-          </div>
-        ))}
+        {
+          images.map((image) => (
+            <div class="gallery-item">
+              <img src={image.src} alt={image.alt} />
+            </div>
+          ))
+        }
       </div>
     </section>
 
@@ -58,7 +66,7 @@ const restOfLecture: string = "Continúa practicando estos conceptos resolviendo
   <style>
     main {
       padding: 2rem;
-      font-family: 'Arial', sans-serif;
+      font-family: "Arial", sans-serif;
       color: #333;
       max-width: 100%;
       box-sizing: border-box;

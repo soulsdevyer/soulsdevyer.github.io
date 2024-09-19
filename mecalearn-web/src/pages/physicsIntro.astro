@@ -1,112 +1,172 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import HorizontalCard from "../components/HorizontalCard.astro";
 import Heading from "../components/Heading.astro";
 import Paragraph from "../components/Paragraph.astro";
-import Heading2 from "../components/Heading2.astro";
+import ClassLayout from "../layouts/ClassLayout.astro";
+import Video from "../components/EmbedVideo.astro";
 
-const lorem: string = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid iure quibusdam molestias, debitis, a maiores eligendi, quaerat aliquam libero animi nostrum? Veniam, sunt minima ipsa repudiandae cum magni eligendi. Doloremque."
+import type { Heading1 } from "../types/types";
+import type { ImageGallery } from "../types/types";
+import SliderGallery from "../components/SliderGallery.astro";
+const lorem =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in mi ut nunc cursus dignissim quis id lorem. Pellentesque elit tortor, pretium ac sagittis at, mattis in tellus. Sed efficitur tristique tincidunt. Fusce mi risus, commodo quis cursus a, aliquet sed nisl. Nullam pharetra convallis mauris et consequat. Morbi odio magna, suscipit eu nisi non, fringilla bibendum libero. Cras pretium maximus feugiat. Vestibulum a dapibus mauris. Aliquam erat volutpat. Curabitur in urna in lorem hendrerit dapibus. Vestibulum lectus arcu, placerat a scelerisque ac, aliquam in mi. Quisque ac neque ultrices, facilisis urna ut, ornare nunc. Pellentesque ac augue eleifend, tincidunt turpis in, viverra sapien. Etiam tempor vitae tortor sit amet vulputate.";
+
+const introText: Heading1 = {
+  title: "Introducción a MecaLearn",
+  sub: "¿Qué es MecaLearn?",
+};
+
+const imageGallery: Heading1 = {
+  title: "Introducción a MecaLearn",
+};
+
+const additionalContent: Heading1 = {
+  title: "Contenido Adicional",
+};
+
+const slider: ImageGallery = {
+  img: "../../assets/misc/mecalearnLogo.png",
+  img1:"../../assets/misc/mecalearnLogo.png",
+  img2: "../../assets/misc/mecalearnLogo.png",
+
+  cap: lorem,
+  cap1: lorem,
+  cap2: lorem
+  
+}
+
+const introductionText: string =
+  "Es bien sabido que el estudio de la física desde la educación básica genera ciertas dificultades en su comprensión y ejecución para muchos estudiantes, sea por la aplicación de conceptos matemáticos, el uso de la lógica, o lo arbitrario que pueda considerarse cada uno de los términos . A su vez, la física es una de las áreas del conocimiento de mayor antigüedad y rigidez en el mundo, y no se han promovido mayores cambios a su enseñanza desde su existencia. Con el auge de la era digital, se presentan oportunidades para cambiar ésta realidad, como lo puede ser ésta.";
+
+const mainText: string = "Bienvenido a MecaLearn, una aplicación institucional desarrollada con el fin de llevar a cabo un cambio sustancial para modificar positivamente ésta realidad, y facilita el acceso al conocimiento relacionado a la física, con temas básicos planteados desde la sencillez, sin una complejidad teórica innecesaria, y sin la necesidad de tener acceso a internet para hallar el conocimiento y ponerlo en práctica, garantizando la mayor accesibilidad posible como aplicación gratuita de escritorio."
+
 ---
 
-<Layout title="Bienvenido a MecaLearn!">
-  
-
-<div class="parent">
-        <div class="div2">
-          <Heading></Heading>
-          <Heading2
-          title="hola"></Heading2>
-        </div>
-    <div class="div3">
-      <HorizontalCard
-        img="../../assets/courseIntros/introToMecalearn.png"
-        title="Introducción a MecaLearn"
-        body="Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!"
-        href="/indexcopy"
-      /><HorizontalCard
-        img="../../assets/courseIntros/introToMecalearn.png"
-        title="Introducción a MecaLearn"
-        body="Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!"
-        href="/indexcopy"
-      /><HorizontalCard
-        img="../../assets/courseIntros/introToMecalearn.png"
-        title="Introducción a MecaLearn"
-        body="Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!"
-        href="/indexcopy"
+<ClassLayout title="Introducción a MecaLearn">
+  <main>
+    <!-- First Row: Video and Introduction -->
+    <section class="row">
+      <!-- Video Section -->
+      <Video
+        url="https://www.youtube.com/embed/ylErHxQjodw?si=vgZosa-a9HzaJmin"
       />
 
-      <Heading2 title="hello">
+      <!-- Introduction Text -->
+      <div class="intro-text">
+        <Heading element={introText} />    
+        <Paragraph text={introductionText} />
+      </div>
+    </section>
 
-      </Heading2>
-    </div>
-</div>
-    
+        <Paragraph text={mainText} />
+
+
+    <!-- Second Row: Image Gallery -->
+    <section class="image-gallery">
+      <Heading element={imageGallery} />
+     <SliderGallery
+     gallery = {slider}
+     ></SliderGallery>
+    </section>
+
+    <!-- Third Row: Rest of Lecture Content -->
+    <section class="rest-of-lecture">
+      <Heading element={additionalContent} />
+      <Paragraph text={lorem} />
+      <!-- <div class="practice">
+        <h4>Ejercicio Práctico</h4>
+        <p>Escribe un programa que imprima "Hola Mundo". Envía tu código en el formulario de tareas.</p>
+        <a href="/submit-assignment" class="btn-primary">Enviar Tarea</a>
+      </div> -->
+    </section>
+  </main>
 
   <style>
-        
-        
-        
-        
-        
-
     main {
-      margin: auto;
-      padding: 1rem;
-      width: 800px;
-      max-width: calc(100% - 2rem);
-      color: white;
-      font-size: 20px;
-      line-height: 1.6;
+      padding: 2rem;
+      font-family: "Arial", sans-serif;
+      color: #333;
+      max-width: 100%;
+      box-sizing: border-box;
     }
-    .astro-a {
-      position: absolute;
-      top: -32px;
-      left: 50%;
-      transform: translatex(-50%);
-      width: 220px;
+
+    /* First row: Video and Introduction */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .video-container {
+      flex: 2;
+      max-width: 100%;
+    }
+
+    .video-container video {
+      width: 100%;
       height: auto;
-      z-index: -1;
+      border-radius: 8px;
     }
-    h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      line-height: 1;
-      text-align: center;
-      margin-bottom: 1em;
-    }
-    .text-gradient {
-      background-image: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 400%;
-      background-position: 0%;
-    }
-    .instructions {
-      margin-bottom: 2rem;
-      border: 1px solid rgba(var(--accent-light), 25%);
-      background: linear-gradient(
-        rgba(var(--accent-dark), 66%),
-        rgba(var(--accent-dark), 33%)
-      );
+
+    .intro-text {
+      flex: 1;
+      min-width: 300px;
+      max-width: 100%;
+
       padding: 1.5rem;
       border-radius: 8px;
     }
-    .instructions code {
-      font-size: 0.8em;
-      font-weight: bold;
-      background: rgba(var(--accent-light), 12%);
-      color: rgb(var(--accent-light));
-      border-radius: 4px;
-      padding: 0.3em 0.4em;
+
+    /* Second row: Image Gallery */
+    .image-gallery {
+      margin-bottom: 3rem;
     }
-    .instructions strong {
-      color: rgb(var(--accent-light));
-    }
-    .link-Card-grid {
+
+    .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(36ch, 1fr));
-      gap: 0.75rem;
-      padding: 0;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Third row: Rest of Lecture Content */
+    .rest-of-lecture {
+      background-color: #e0f7fa;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .practice {
+      margin-top: 1.5rem;
+      background-color: #fff;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #0077b6;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #005f87;
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+      }
     }
   </style>
-</Layout>
+</ClassLayout>

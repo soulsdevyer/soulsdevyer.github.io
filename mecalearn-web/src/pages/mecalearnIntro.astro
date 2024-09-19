@@ -1,170 +1,166 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import Heading from "../components/Heading.astro";
 import Paragraph from "../components/Paragraph.astro";
-import Heading2 from "../components/Heading2.astro";
 import ClassLayout from "../layouts/ClassLayout.astro";
-const lorem: string =
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi provident autem aliquid quibusdam atque, minima a quos vero. Ratione nisi numquam voluptatum atque quos facilis fugiat inventore laboriosam? Ut, accusantium.";
-const title: string = "Title";
+import SliderGallery from "../components/SliderGallery.astro";
+import LocalVideo from "../components/LocalVideo.astro"; // Updated import
+
+import type { Heading1 } from "../types/types";
+import type { ImageGallery } from "../types/types";
+
+const lorem =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in mi ut nunc cursus dignissim quis id lorem. Pellentesque elit tortor, pretium ac sagittis at, mattis in tellus. Sed efficitur tristique tincidunt. Fusce mi risus, commodo quis cursus a, aliquet sed nisl. Nullam pharetra convallis mauris et consequat. Morbi odio magna, suscipit eu nisi non, fringilla bibendum libero. Cras pretium maximus feugiat. Vestibulum a dapibus mauris. Aliquam erat volutpat. Curabitur in urna in lorem hendrerit dapibus. Vestibulum lectus arcu, placerat a scelerisque ac, aliquam in mi. Quisque ac neque ultrices, facilisis urna ut, ornare nunc. Pellentesque ac augue eleifend, tincidunt turpis in, viverra sapien. Etiam tempor vitae tortor sit amet vulputate.";
+
+const introText: Heading1 = {
+  title: "Introducción a MecaLearn",
+  sub: "¿Qué es MecaLearn?",
+};
+
+const imageGallery: Heading1 = {
+  title: "Introducción a MecaLearn",
+};
+
+const additionalContent: Heading1 = {
+  title: "Contenido Adicional",
+};
+
+const slider: ImageGallery = {
+  img: "../../assets/misc/mecalearnLogo.png",
+  img1:"../../assets/misc/mecalearnLogo.png",
+  img2: "../../assets/misc/mecalearnLogo.png",
+  cap: lorem,
+  cap1: lorem,
+  cap2: lorem
+}
+
+const introductionText: string =
+  "Es bien sabido que el estudio de la física desde la educación básica genera ciertas dificultades en su comprensión y ejecución para muchos estudiantes, sea por la aplicación de conceptos matemáticos, el uso de la lógica, o lo arbitrario que pueda considerarse cada uno de los términos . A su vez, la física es una de las áreas del conocimiento de mayor antigüedad y rigidez en el mundo, y no se han promovido mayores cambios a su enseñanza desde su existencia. Con el auge de la era digital, se presentan oportunidades para cambiar ésta realidad, como lo puede ser ésta.";
+
+const mainText: string = "Bienvenido a MecaLearn, una aplicación institucional desarrollada con el fin de llevar a cabo un cambio sustancial para modificar positivamente ésta realidad, y facilita el acceso al conocimiento relacionado a la física, con temas básicos planteados desde la sencillez, sin una complejidad teórica innecesaria, y sin la necesidad de tener acceso a internet para hallar el conocimiento y ponerlo en práctica, garantizando la mayor accesibilidad posible como aplicación gratuita de escritorio."
 ---
 
-<ClassLayout title="Bienvenido a MecaLearn!">
+<ClassLayout title="Introducción a MecaLearn">
   <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <Heading level={1} class="text-gradient">Aprende con MecaLearn</Heading>
-      <Paragraph text={lorem} />
-    </section>
+    <!-- First Row: Video and Introduction -->
+    <section class="row">
+      <!-- Video Section -->
+      <LocalVideo
+        src=../../assets/courseIntros/Intro_slide.mp4
+      />
 
-    <!-- Featured Courses Section -->
-    <section class="featured">
-      <Heading title={title} />
-      <div class="link-Card-grid">
-        <!-- Placeholder for course cards -->
-        <div class="card">
-          <h3>Curso de Introducción a la Programación</h3>
-          <p>
-            Aprende los conceptos básicos de programación con ejercicios
-            prácticos.
-          </p>
-          <a href="/programming-intro">Ver Curso</a>
-        </div>
-        <div class="card">
-          <h3>Matemáticas para Principiantes</h3>
-          <p>
-            Refuerza tus conocimientos en matemáticas con lecciones
-            interactivas.
-          </p>
-          <a href="/math-basics">Ver Curso</a>
-        </div>
-        <div class="card">
-          <h3>Historia Mundial</h3>
-          <p>
-            Explora la historia del mundo con recursos multimedia y
-            evaluaciones.
-          </p>
-          <a href="/world-history">Ver Curso</a>
-        </div>
+      <!-- Introduction Text -->
+      <div class="intro-text">
+        <Heading element={introText} />    
+        <Paragraph text={introductionText} />
       </div>
     </section>
 
-    <!-- Video Section -->
-    <section class="video-section">
-      <Heading2 title={title} />
-      <!-- Placeholder for video embeds -->
-      <div class="video">
-        <h3>Introducción a la Programación</h3>
-        <video controls>
-          <source src="https://www.example.com/video1.mp4" type="video/mp4" />
-          Tu navegador no soporta el elemento de video.
-        </video>
-      </div>
-      <div class="video">
-        <h3>Matemáticas para Principiantes</h3>
-        <video controls>
-          <source src="https://www.example.com/video2.mp4" type="video/mp4" />
-          Tu navegador no soporta el elemento de video.
-        </video>
-      </div>
-    </section>
+    <Paragraph text={mainText} />
 
-    <!-- Image Gallery -->
+    <!-- Second Row: Image Gallery -->
     <section class="image-gallery">
-      <Heading2 title={title} />
-      <div class="gallery-grid">
-        <!-- Placeholder for images -->
-        <div class="image">
-          <img
-            src="https://www.example.com/image1.jpg"
-            alt="Imagen de programación"
-          />
-        </div>
-        <div class="image">
-          <img
-            src="https://www.example.com/image2.jpg"
-            alt="Imagen de matemáticas"
-          />
-        </div>
-        <div class="image">
-          <img
-            src="https://www.example.com/image3.jpg"
-            alt="Imagen de historia"
-          />
-        </div>
-      </div>
+      <Heading element={imageGallery} />
+      <SliderGallery gallery={slider} />
     </section>
 
-    <!-- Instructions Section -->
-    <section class="instructions">
-      <Heading2 title={title} />
+    <!-- Third Row: Rest of Lecture Content -->
+    <section class="rest-of-lecture">
+      <Heading element={additionalContent} />
       <Paragraph text={lorem} />
+      <!-- <div class="practice">
+        <h4>Ejercicio Práctico</h4>
+        <p>Escribe un programa que imprima "Hola Mundo". Envía tu código en el formulario de tareas.</p>
+        <a href="/submit-assignment" class="btn-primary">Enviar Tarea</a>
+      </div> -->
     </section>
   </main>
 
   <style>
     main {
-      margin: auto;
-      padding: 1rem;
-      width: 800px;
-      max-width: calc(100% - 2rem);
-      color: white;
-      font-size: 20px;
-      line-height: 1.6;
+      padding: 2rem;
+      font-family: "Arial", sans-serif;
+      color: #333;
+      max-width: 100%;
+      box-sizing: border-box;
     }
-    .hero {
-      text-align: center;
-      margin-bottom: 2rem;
+
+    /* First row: Video and Introduction */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
-    .featured {
-      margin-bottom: 2rem;
+
+    .video-container {
+      flex: 2;
+      max-width: 100%;
     }
-    .link-Card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    .card {
-      border: 1px solid #ccc;
+
+    .video-player {
+      width: 100%;
+      height: auto;
       border-radius: 8px;
-      padding: 1rem;
-      background: #fff;
-      color: #000;
     }
-    .video-section {
-      margin-bottom: 2rem;
-    }
-    .video {
-      margin-bottom: 1rem;
-    }
-    .image-gallery {
-      margin-bottom: 2rem;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-    }
-    .instructions {
-      margin-bottom: 2rem;
-      border: 1px solid rgba(var(--accent-light), 25%);
-      background: linear-gradient(
-        rgba(var(--accent-dark), 66%),
-        rgba(var(--accent-dark), 33%)
-      );
+
+    .intro-text {
+      flex: 1;
+      min-width: 300px;
+      max-width: 100%;
       padding: 1.5rem;
       border-radius: 8px;
     }
-    .instructions code {
-      font-size: 0.8em;
-      font-weight: bold;
-      background: rgba(var(--accent-light), 12%);
-      color: rgb(var(--accent-light));
-      border-radius: 4px;
-      padding: 0.3em 0.4em;
+
+    /* Second row: Image Gallery */
+    .image-gallery {
+      margin-bottom: 3rem;
     }
-    .instructions strong {
-      color: rgb(var(--accent-light));
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Third row: Rest of Lecture Content */
+    .rest-of-lecture {
+      background-color: #e0f7fa;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .practice {
+      margin-top: 1.5rem;
+      background-color: #fff;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #0077b6;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #005f87;
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+      }
     }
   </style>
 </ClassLayout>

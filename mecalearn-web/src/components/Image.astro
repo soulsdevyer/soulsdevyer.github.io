@@ -1,0 +1,8 @@
+---
+interface Props{
+    src: string
+}
+
+const {src} = Astro.props
+---
+<img class="h-auto max-w-xs" src={src} alt="image description">

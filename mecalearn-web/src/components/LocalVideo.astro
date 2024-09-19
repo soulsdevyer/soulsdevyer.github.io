@@ -1,0 +1,27 @@
+---
+interface Props {
+  src: string; // Path to the local video file
+}
+
+const { src } = Astro.props;
+---
+
+<div class="video-container">
+  <video class="video-player" controls>
+    <source src={src} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<style>
+  .video-container {
+    flex: 2;
+    max-width: 100%;
+  }
+
+  .video-player {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+</style>

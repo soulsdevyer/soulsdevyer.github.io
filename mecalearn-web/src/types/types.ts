@@ -16,3 +16,13 @@ export interface Heading1 {
   title: string;
   sub?: string;
 }
+
+export interface ImageGallery {
+  img: string;
+  img1: string;
+  img2: string;
+
+  cap?: string;
+  cap1?: string;
+  cap2?: string;
+}

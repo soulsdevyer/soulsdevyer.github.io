@@ -2,15 +2,18 @@
 import Heading from "../components/Heading.astro";
 import Paragraph from "../components/Paragraph.astro";
 import ClassLayout from "../layouts/ClassLayout.astro";
-import Video from "../components/Video.astro";
+import SliderGallery from "../components/SliderGallery.astro";
+import LocalVideo from "../components/LocalVideo.astro"; // Updated import
 
 import type { Heading1 } from "../types/types";
+import type { ImageGallery } from "../types/types";
+
 const lorem =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in mi ut nunc cursus dignissim quis id lorem. Pellentesque elit tortor, pretium ac sagittis at, mattis in tellus. Sed efficitur tristique tincidunt. Fusce mi risus, commodo quis cursus a, aliquet sed nisl. Nullam pharetra convallis mauris et consequat. Morbi odio magna, suscipit eu nisi non, fringilla bibendum libero. Cras pretium maximus feugiat. Vestibulum a dapibus mauris. Aliquam erat volutpat. Curabitur in urna in lorem hendrerit dapibus. Vestibulum lectus arcu, placerat a scelerisque ac, aliquam in mi. Quisque ac neque ultrices, facilisis urna ut, ornare nunc. Pellentesque ac augue eleifend, tincidunt turpis in, viverra sapien. Etiam tempor vitae tortor sit amet vulputate.";
 
 const introText: Heading1 = {
   title: "Introducción a MecaLearn",
-  sub: "Cómo dar tus primeros pasos en la herramienta!",
+  sub: "¿Qué es MecaLearn?",
 };
 
 const imageGallery: Heading1 = {
@@ -21,21 +24,19 @@ const additionalContent: Heading1 = {
   title: "Contenido Adicional",
 };
 
+const slider: ImageGallery = {
+  img: "../../assets/misc/mecalearnLogo.png",
+  img1:"../../assets/misc/mecalearnLogo.png",
+  img2: "../../assets/misc/mecalearnLogo.png",
+  cap: lorem,
+  cap1: lorem,
+  cap2: lorem
+}
+
 const introductionText: string =
-  "En esta lección aprenderás los conceptos fundamentales de programación: variables, tipos de datos, y estructuras de control básicas. Estos elementos son esenciales para escribir programas eficientes y bien estructurados.";
-const images = [
-  {
-    src: "https://www.example.com/image1.jpg",
-    alt: "Concepto de Programación",
-  },
-  {
-    src: "https://www.example.com/image2.jpg",
-    alt: "Variables en Programación",
-  },
-  { src: "https://www.example.com/image3.jpg", alt: "Estructuras de Control" },
-];
-const restOfLecture: string =
-  "Continúa practicando estos conceptos resolviendo problemas de programación simples. En este ejercicio escribirás tu primer programa que imprimirá 'Hola Mundo' usando un lenguaje de programación de tu elección.";
+  "Es bien sabido que el estudio de la física desde la educación básica genera ciertas dificultades en su comprensión y ejecución para muchos estudiantes, sea por la aplicación de conceptos matemáticos, el uso de la lógica, o lo arbitrario que pueda considerarse cada uno de los términos . A su vez, la física es una de las áreas del conocimiento de mayor antigüedad y rigidez en el mundo, y no se han promovido mayores cambios a su enseñanza desde su existencia. Con el auge de la era digital, se presentan oportunidades para cambiar ésta realidad, como lo puede ser ésta.";
+
+const mainText: string = "Bienvenido a MecaLearn, una aplicación institucional desarrollada con el fin de llevar a cabo un cambio sustancial para modificar positivamente ésta realidad, y facilita el acceso al conocimiento relacionado a la física, con temas básicos planteados desde la sencillez, sin una complejidad teórica innecesaria, y sin la necesidad de tener acceso a internet para hallar el conocimiento y ponerlo en práctica, garantizando la mayor accesibilidad posible como aplicación gratuita de escritorio."
 ---
 
 <ClassLayout title="Introducción a MecaLearn">
@@ -43,35 +44,29 @@ const restOfLecture: string =
     <!-- First Row: Video and Introduction -->
     <section class="row">
       <!-- Video Section -->
-      <Video
-        url="https://www.youtube.com/embed/ylErHxQjodw?si=vgZosa-a9HzaJmin"
+      <LocalVideo
+        src=../../assets/courseIntros/Intro_slide.mp4
       />
 
       <!-- Introduction Text -->
       <div class="intro-text">
-        <Heading element={introText} />
-        <Paragraph text={lorem} />
+        <Heading element={introText} />    
+        <Paragraph text={introductionText} />
       </div>
     </section>
+
+    <Paragraph text={mainText} />
 
     <!-- Second Row: Image Gallery -->
     <section class="image-gallery">
       <Heading element={imageGallery} />
-      <div class="gallery-grid">
-        {
-          images.map((image) => (
-            <div class="gallery-item">
-              <img src={image.src} alt={image.alt} />
-            </div>
-          ))
-        }
-      </div>
+      <SliderGallery gallery={slider} />
     </section>
 
     <!-- Third Row: Rest of Lecture Content -->
     <section class="rest-of-lecture">
       <Heading element={additionalContent} />
-      <Paragraph text={restOfLecture} />
+      <Paragraph text={lorem} />
       <!-- <div class="practice">
         <h4>Ejercicio Práctico</h4>
         <p>Escribe un programa que imprima "Hola Mundo". Envía tu código en el formulario de tareas.</p>
@@ -102,7 +97,7 @@ const restOfLecture: string =
       max-width: 100%;
     }
 
-    .video-container video {
+    .video-player {
       width: 100%;
       height: auto;
       border-radius: 8px;
@@ -112,7 +107,6 @@ const restOfLecture: string =
       flex: 1;
       min-width: 300px;
       max-width: 100%;
-
       padding: 1.5rem;
       border-radius: 8px;
     }

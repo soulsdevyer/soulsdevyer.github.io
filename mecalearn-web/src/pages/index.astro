@@ -8,42 +8,45 @@ const cards: SubjectCards[] = [
     img: "../../assets/courseIntros/introToMecalearn.png",
 
     title: "Introducción a MecaLearn",
-    label:
-      "Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!",
-    href: "/mecalearnIntro",
+    label: "Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!",
+    href: "/mecalearnIntro"
   },
   {
     img: "../../assets/courseIntros/introToMecalearn.png",
 
     title: "Introducción a Física",
-    label:
-      "Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!",
-    href: "/mecalearnIntro",
+    label: "Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!",
+    href: "/mecalearnIntro"
   },
   {
     img: "../../assets/courseIntros/introToMecalearn.png",
 
     title: "Conversión de unidades",
-    label:
-      "Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!",
-    href: "/mecalearnIntro",
-  },
-];
+    label: "Descubre cómo puedes utilizar esta herramienta para apoyar tu proceso de aprendizaje!",
+    href: "/mecalearnIntro"
+  }
+]
 ---
 
-<Layout title="Bienvenido a MecaLearn!">
+<Layout title="Bienvenido a MecaLearn!" >
   <div slot="home">
-    <ul role="list" class="link-Card-grid" style="padding: 15px;">
-      <HorizontalCard card={cards} />
+<ul role="list" class="link-Card-grid" style="padding: 15px;">
+          
+          <HorizontalCard
+          card={cards}>
+        </HorizontalCard>
 
-      <HorizontalCard card={cards} />
-
-      <HorizontalCard card={cards} />
-    </ul>
+        
+        </ul>
+          
+    
   </div>
 
-  <main></main>
+  <main>
+    
+  </main>
 
+  
   <style>
     main {
       margin: auto;

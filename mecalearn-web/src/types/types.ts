@@ -11,3 +11,8 @@ export interface SubjectCards {
   label: string;
   href: string;
 }
+
+export interface Heading1 {
+  title: string;
+  sub?: string;
+}

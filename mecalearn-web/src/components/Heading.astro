@@ -1,27 +1,26 @@
 ---
+import type { Heading1 } from "../types/types";
 interface Props {
-  title: string
-  sub?: string
-
+  element: Heading1;
 }
 
-const {title, sub} = Astro.props
+const { element } = Astro.props;
 ---
 
 <div class="flex flex-col items-center text-center">
   <h1
-    class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
+    class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-meca-mainBlue"
   >
-    {title}
+    {element.title}
   </h1>
   <p
-    class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400"
+    class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-meca-lightestBlue"
   >
-    {sub}
+    {element.sub}
   </p>
   <a
     href="#"
-    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-meca-secondaryBlue rounded-lg hover:bg-meca-midBlue focus:ring-4 focus:ring-meca-lightBlue dark:focus:ring-meca-lightestBlue"
   >
     Learn more
     <svg

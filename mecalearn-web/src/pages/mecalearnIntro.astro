@@ -4,6 +4,23 @@ import Paragraph from "../components/Paragraph.astro";
 import ClassLayout from "../layouts/ClassLayout.astro";
 import Video from "../components/Video.astro";
 
+import type { Heading1 } from "../types/types";
+const lorem =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in mi ut nunc cursus dignissim quis id lorem. Pellentesque elit tortor, pretium ac sagittis at, mattis in tellus. Sed efficitur tristique tincidunt. Fusce mi risus, commodo quis cursus a, aliquet sed nisl. Nullam pharetra convallis mauris et consequat. Morbi odio magna, suscipit eu nisi non, fringilla bibendum libero. Cras pretium maximus feugiat. Vestibulum a dapibus mauris. Aliquam erat volutpat. Curabitur in urna in lorem hendrerit dapibus. Vestibulum lectus arcu, placerat a scelerisque ac, aliquam in mi. Quisque ac neque ultrices, facilisis urna ut, ornare nunc. Pellentesque ac augue eleifend, tincidunt turpis in, viverra sapien. Etiam tempor vitae tortor sit amet vulputate.";
+
+const introText: Heading1 = {
+  title: "Introducción a MecaLearn",
+  sub: "Cómo dar tus primeros pasos en la herramienta!",
+};
+
+const imageGallery: Heading1 = {
+  title: "Introducción a MecaLearn",
+};
+
+const additionalContent: Heading1 = {
+  title: "Contenido Adicional",
+};
+
 const introductionText: string =
   "En esta lección aprenderás los conceptos fundamentales de programación: variables, tipos de datos, y estructuras de control básicas. Estos elementos son esenciales para escribir programas eficientes y bien estructurados.";
 const images = [
@@ -32,14 +49,14 @@ const restOfLecture: string =
 
       <!-- Introduction Text -->
       <div class="intro-text">
-        <Heading title="Hello World!" sub="Just" />
-        <Paragraph text={introductionText} />
+        <Heading element={introText} />
+        <Paragraph text={lorem} />
       </div>
     </section>
 
     <!-- Second Row: Image Gallery -->
     <section class="image-gallery">
-      <Heading title="Galería de Imágenes" />
+      <Heading element={imageGallery} />
       <div class="gallery-grid">
         {
           images.map((image) => (
@@ -53,7 +70,7 @@ const restOfLecture: string =
 
     <!-- Third Row: Rest of Lecture Content -->
     <section class="rest-of-lecture">
-      <Heading title="Contenido Adicional" />
+      <Heading element={additionalContent} />
       <Paragraph text={restOfLecture} />
       <!-- <div class="practice">
         <h4>Ejercicio Práctico</h4>
@@ -95,7 +112,7 @@ const restOfLecture: string =
       flex: 1;
       min-width: 300px;
       max-width: 100%;
-      background-color: #f9f9f9;
+
       padding: 1.5rem;
       border-radius: 8px;
     }

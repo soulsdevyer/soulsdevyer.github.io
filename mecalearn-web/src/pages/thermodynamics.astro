@@ -1,0 +1,190 @@
+---
+import Heading from "../components/Heading.astro";
+import Paragraph from "../components/Paragraph.astro";
+import ClassLayout from "../layouts/ClassLayout.astro";
+import EmbedVideo from "../components/EmbedVideo.astro";
+import SliderGallery from "../components/SliderGallery.astro";
+import type { Heading1 } from "../types/types";
+import type { ImageGallery } from "../types/types";
+
+const introText: Heading1 = {
+  title: "Introducción a la Termodinámica",
+  sub: "¿Qué es el Calor y cómo se Transfiere?",
+};
+
+const heatTransferTitle: Heading1 = {
+  title: "Modos de Transferencia de Calor",
+};
+
+const measurementTitle: Heading1 = {
+  title: "Cómo Medimos el Calor",
+};
+
+const additionalContent: Heading1 = {
+  title: "Capacidad Calorífica y Ejemplo Práctico",
+};
+
+const slider: ImageGallery = {
+  img: "../../assets/thermodynamics/conduction.png",
+  img1: "../../assets/thermodynamics/convection.jpg",
+  img2: "../../assets/thermodynamics/radiation.jpg",
+
+  cap: "Conducción: Transferencia de calor a través de un sólido",
+  cap1: "Convección: Transferencia de calor en líquidos y gases",
+  cap2: "Radiación: Transferencia de calor en forma de ondas electromagnéticas",
+};
+
+const introductionText: string =
+  "El calor es un concepto fundamental en física que describe la transferencia de energía térmica entre cuerpos o sistemas. Esta energía fluye de los objetos con mayor temperatura hacia los de menor temperatura, hasta que ambos alcanzan un equilibrio térmico.";
+const mainText: string =
+  "Imagina que estás sosteniendo una taza de chocolate caliente. Poco a poco, sentirás cómo el calor pasa de la taza a tus manos, calentándolas. Este proceso ocurre porque el calor siempre fluye de los objetos más calientes a los más fríos. En este caso, el chocolate caliente tiene más energía térmica que tus manos, y esa energía se transfiere hasta que ambos estén a una temperatura similar.";
+
+const heatTransferText: string =
+  "El calor puede moverse de tres maneras diferentes: Conducción, Convección y Radiación. Estas son las principales formas en que la energía térmica se transfiere entre cuerpos, dependiendo del medio a través del cual se transmite.";
+
+const measurementText: string =
+  "El calor se mide en unidades llamadas julios (J), que es la misma unidad que se usa para medir cualquier tipo de energía en física. Otra unidad común para medir el calor es la caloría (cal). Para conversión, 1 caloría equivale a 4.184 julios.";
+
+const additionalText: string =
+  "La capacidad calorífica de un material indica cuánta energía es necesaria para aumentar su temperatura. La fórmula para calcular el calor transferido es: Q = m⋅c⋅ΔT, donde Q es la cantidad de calor, m es la masa del objeto, c es la capacidad calorífica específica, y ΔT es el cambio de temperatura.";
+
+const practicalExample: string =
+  "Si calientas una olla con agua en la estufa, el calor de la llama se transfiere al metal de la olla (conducción), luego al agua (conducción dentro de la olla), y finalmente, el agua caliente empieza a circular, formando corrientes (convección). También sentirás el calor en tu piel debido a la radiación.";
+---
+
+<ClassLayout title="Introducción a Termodinámica">
+  <main>
+    <!-- First Row: Video and Introduction -->
+    <section class="row">
+      <!-- Video Section -->
+      <EmbedVideo
+        url="https://www.youtube.com/embed/St8tvRdvghk?si=AKflVMO0cZAwj0-A"
+      />
+
+      <!-- Introduction Text -->
+      <div class="intro-text">
+        <Heading element={introText} />
+        <Paragraph text={introductionText} />
+        <Paragraph text={mainText} />
+      </div>
+    </section>
+
+    <!-- Heat Transfer Methods -->
+    <section class="heat-transfer">
+      <Heading element={heatTransferTitle} />
+      <Paragraph text={heatTransferText} />
+
+      <SliderGallery gallery={slider} />
+    </section>
+
+    <!-- Measurement of Heat Section -->
+    <section class="measurement">
+      <Heading element={measurementTitle} />
+      <Paragraph text={measurementText} />
+
+      <!-- Table for Measurement -->
+      <table class="table-measurement">
+        <thead>
+          <tr>
+            <th>Unidad</th>
+            <th>Descripción</th>
+            <th>Equivalente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Joule (J)</td>
+            <td>Unidad de energía en el sistema internacional</td>
+            <td>1 J = 1 N⋅m</td>
+          </tr>
+          <tr>
+            <td>Caloría (cal)</td>
+            <td
+              >Cantidad de calor necesaria para aumentar la temperatura de 1 g
+              de agua en 1°C</td
+            >
+            <td>1 cal = 4.184 J</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Additional Content: Capacity and Practical Example -->
+    <section class="additional-content">
+      <Heading element={additionalContent} />
+      <Paragraph text={additionalText} />
+      <div class="practice">
+        <Paragraph text={practicalExample} />
+      </div>
+    </section>
+  </main>
+
+  <style>
+    main {
+      padding: 2rem;
+      font-family: "Arial", sans-serif;
+      color: #333;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* First row: Video and Introduction */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .intro-text {
+      flex: 1;
+      min-width: 300px;
+      max-width: 100%;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    /* Second Row: Heat Transfer */
+    .heat-transfer {
+      margin-bottom: 3rem;
+    }
+
+    /* Measurement Section */
+    .measurement {
+      margin-bottom: 3rem;
+    }
+
+    .table-measurement {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+
+    .table-measurement th,
+    .table-measurement td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .table-measurement th {
+      background-color: #f2f2f2;
+    }
+
+    /* Additional Content: Practical Example */
+    .practice {
+      margin-top: 1.5rem;
+      background-color: #fff;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</ClassLayout>

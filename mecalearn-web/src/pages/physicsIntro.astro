@@ -2,43 +2,49 @@
 import Heading from "../components/Heading.astro";
 import Paragraph from "../components/Paragraph.astro";
 import ClassLayout from "../layouts/ClassLayout.astro";
-import Video from "../components/EmbedVideo.astro";
+import SliderGallery from "../components/SliderGallery.astro";
+import EmbedVideo from "../components/EmbedVideo.astro";
 
 import type { Heading1 } from "../types/types";
 import type { ImageGallery } from "../types/types";
-import SliderGallery from "../components/SliderGallery.astro";
+
 const lorem =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in mi ut nunc cursus dignissim quis id lorem. Pellentesque elit tortor, pretium ac sagittis at, mattis in tellus. Sed efficitur tristique tincidunt. Fusce mi risus, commodo quis cursus a, aliquet sed nisl. Nullam pharetra convallis mauris et consequat. Morbi odio magna, suscipit eu nisi non, fringilla bibendum libero. Cras pretium maximus feugiat. Vestibulum a dapibus mauris. Aliquam erat volutpat. Curabitur in urna in lorem hendrerit dapibus. Vestibulum lectus arcu, placerat a scelerisque ac, aliquam in mi. Quisque ac neque ultrices, facilisis urna ut, ornare nunc. Pellentesque ac augue eleifend, tincidunt turpis in, viverra sapien. Etiam tempor vitae tortor sit amet vulputate.";
 
 const introText: Heading1 = {
-  title: "Introducción a MecaLearn",
-  sub: "¿Qué es MecaLearn?",
+  title: "Introducción a la Fisica",
+  sub: "¿Cómo empezar?",
 };
 
 const imageGallery: Heading1 = {
-  title: "Introducción a MecaLearn",
+  title: "Introducción a la Física",
 };
 
 const additionalContent: Heading1 = {
   title: "Contenido Adicional",
 };
 
-const slider: ImageGallery = {
-  img: "../../assets/misc/mecalearnLogo.png",
-  img1:"../../assets/misc/mecalearnLogo.png",
-  img2: "../../assets/misc/mecalearnLogo.png",
+const galleryText: string = "- Caída de los cuerpos";
+const galleryText1: string = "- Desplazamiento";
+const galleryText2: string = "- Causas del movimiento";
 
-  cap: lorem,
-  cap1: lorem,
-  cap2: lorem
-  
-}
+const slider: ImageGallery = {
+  img: "../../assets/physicsIntro/cinematica.png",
+  img1: "../../assets/physicsIntro/dinamica.jpg",
+  img2: "../../assets/physicsIntro/mruv.png",
+  cap: galleryText,
+  cap1: galleryText1,
+  cap2: galleryText2,
+};
 
 const introductionText: string =
-  "Es bien sabido que el estudio de la física desde la educación básica genera ciertas dificultades en su comprensión y ejecución para muchos estudiantes, sea por la aplicación de conceptos matemáticos, el uso de la lógica, o lo arbitrario que pueda considerarse cada uno de los términos . A su vez, la física es una de las áreas del conocimiento de mayor antigüedad y rigidez en el mundo, y no se han promovido mayores cambios a su enseñanza desde su existencia. Con el auge de la era digital, se presentan oportunidades para cambiar ésta realidad, como lo puede ser ésta.";
+  "La física es una de las ciencias que más claridad nos han brindado con respecto al funcionamiento del mundo. Es la encargada de estudiar el movimiento de los cuerpos y los fenómenos asociados a la energía y la materia. El estudio de la física resulta fundamental para comprender cómo funciona el universo y todo aquello que nos rodea, de allí que abarque diversas áreas de estudio científico. Gracias a la física se ha desarrollado un gran porcentaje de innovación tecnológica a fin de mejorar la calidad de vida. Por ejemplo, la ingeniería y otras tecnologías aplican conocimientos sobre física en el área automotriz, salud, medioambiental, nuclear, telecomunicaciones, entre otros.";
 
-const mainText: string = "Bienvenido a MecaLearn, una aplicación institucional desarrollada con el fin de llevar a cabo un cambio sustancial para modificar positivamente ésta realidad, y facilita el acceso al conocimiento relacionado a la física, con temas básicos planteados desde la sencillez, sin una complejidad teórica innecesaria, y sin la necesidad de tener acceso a internet para hallar el conocimiento y ponerlo en práctica, garantizando la mayor accesibilidad posible como aplicación gratuita de escritorio."
+const mainText: string =
+  "Con respecto a la problemática que se ha encontrado y analizado, existen diferentes datos que corroboran la dificultad general del aprendizaje con respecto a la física en las instituciones educativas de Colombia. Según la Revista Semana: “Cada joven es diferente, alguno es más diestro para una asignatura que otra, así que es difícil generalizar y afirmar que a todos les va mal en esta o en otra, sin embargo sí hay materias que presentan mayores índices de reprobados. La plataforma tecnológica educativa Súperprofe.co se dio a la tarea de encontrar cuáles son.” En cuanto a la distribución por el nivel educativo de los estudiantes que solicitan más tutorías personalizadas, la plataforma encontró que el 43% se encuentran cursando secundaria, 27% de primaria y un 22%, universitarios. Dada la complejidad de ésta ciencia, la misma se ha dividido en diferentes ramas a lo largo de la historia, cada una enfocada en un apartado específico de sus estudios. Por ejemplo, la mecánica es la rama de la física que se enfoca exclusivamente en el movimiento de los cuerpos, y la misma cuenta con diferentes subramas, como la cinemática, que analiza el comportamiento de los cuerpos en movimiento, en contrariedad con la estática, que explica el comportamiento de un cuerpo inerte y las fuerzas detrás del mismo.";
 
+const additionalText: string =
+  "En ésta aplicación, encontrarás definidos los conceptos básicos de la mecánica, la rama de estudio más común en la educación secundaria, con sus respectivos contenidos organizados, explicados, y demostrados a manera de índices que dividen los temas a trabajar.";
 ---
 
 <ClassLayout title="Introducción a MecaLearn">
@@ -46,32 +52,29 @@ const mainText: string = "Bienvenido a MecaLearn, una aplicación institucional 
     <!-- First Row: Video and Introduction -->
     <section class="row">
       <!-- Video Section -->
-      <Video
-        url="https://www.youtube.com/embed/ylErHxQjodw?si=vgZosa-a9HzaJmin"
+      <EmbedVideo
+        url="https://www.youtube.com/embed/HD0Hv9A3md4?si=2buS3bfjaL8IWYRP"
       />
 
       <!-- Introduction Text -->
       <div class="intro-text">
-        <Heading element={introText} />    
+        <Heading element={introText} />
         <Paragraph text={introductionText} />
       </div>
     </section>
 
-        <Paragraph text={mainText} />
-
+    <Paragraph text={mainText} />
 
     <!-- Second Row: Image Gallery -->
     <section class="image-gallery">
       <Heading element={imageGallery} />
-     <SliderGallery
-     gallery = {slider}
-     ></SliderGallery>
+      <SliderGallery gallery={slider} />
     </section>
 
     <!-- Third Row: Rest of Lecture Content -->
     <section class="rest-of-lecture">
       <Heading element={additionalContent} />
-      <Paragraph text={lorem} />
+      <Paragraph text={additionalText} />
       <!-- <div class="practice">
         <h4>Ejercicio Práctico</h4>
         <p>Escribe un programa que imprima "Hola Mundo". Envía tu código en el formulario de tareas.</p>
@@ -102,7 +105,7 @@ const mainText: string = "Bienvenido a MecaLearn, una aplicación institucional 
       max-width: 100%;
     }
 
-    .video-container video {
+    .video-player {
       width: 100%;
       height: auto;
       border-radius: 8px;
@@ -112,7 +115,6 @@ const mainText: string = "Bienvenido a MecaLearn, una aplicación institucional 
       flex: 1;
       min-width: 300px;
       max-width: 100%;
-
       padding: 1.5rem;
       border-radius: 8px;
     }

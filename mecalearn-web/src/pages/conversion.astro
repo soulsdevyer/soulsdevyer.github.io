@@ -2,7 +2,7 @@
 import Heading from "../components/Heading.astro";
 import Paragraph from "../components/Paragraph.astro";
 import ClassLayout from "../layouts/ClassLayout.astro";
-import Video from "../components/EmbedVideo.astro";
+import EmbedVideo from "../components/EmbedVideo.astro";
 
 import type { Heading1 } from "../types/types";
 import type { ImageGallery } from "../types/types";
@@ -11,34 +11,46 @@ const lorem =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in mi ut nunc cursus dignissim quis id lorem. Pellentesque elit tortor, pretium ac sagittis at, mattis in tellus. Sed efficitur tristique tincidunt. Fusce mi risus, commodo quis cursus a, aliquet sed nisl. Nullam pharetra convallis mauris et consequat. Morbi odio magna, suscipit eu nisi non, fringilla bibendum libero. Cras pretium maximus feugiat. Vestibulum a dapibus mauris. Aliquam erat volutpat. Curabitur in urna in lorem hendrerit dapibus. Vestibulum lectus arcu, placerat a scelerisque ac, aliquam in mi. Quisque ac neque ultrices, facilisis urna ut, ornare nunc. Pellentesque ac augue eleifend, tincidunt turpis in, viverra sapien. Etiam tempor vitae tortor sit amet vulputate.";
 
 const introText: Heading1 = {
-  title: "Introducción a MecaLearn",
-  sub: "¿Qué es MecaLearn?",
+  title: "Conversión de unidades",
+  sub: "¿Qué es la conversión?",
 };
 
 const imageGallery: Heading1 = {
-  title: "Introducción a MecaLearn",
+  title: "Conversión de unidades",
 };
 
 const additionalContent: Heading1 = {
   title: "Contenido Adicional",
 };
 
-const slider: ImageGallery = {
-  img: "../../assets/misc/mecalearnLogo.png",
-  img1:"../../assets/misc/mecalearnLogo.png",
-  img2: "../../assets/misc/mecalearnLogo.png",
+const galleryText: string =
+  "Identifica las unidades iniciales y las unidades de destino.";
+const galleryText1: string =
+  "Podrías estar convirtiendo de metros a pies, de gramos a libras, de horas a minutos, entre otros.";
+const galleryText2: string =
+  "Recuerda mantener coherencia con tus conversiones, no podrás convertir 300 segundos en 40 kilometros por hora. ";
 
-  cap: lorem,
-  cap1: lorem,
-  cap2: lorem
-  
-}
+const slider: ImageGallery = {
+  img: "../../assets/physicsIntro/cinematica.png",
+  img1: "../../assets/physicsIntro/dinamica.jpg",
+  img2: "../../assets/physicsIntro/mruv.png",
+  cap: galleryText,
+  cap1: galleryText1,
+  cap2: galleryText2,
+};
 
 const introductionText: string =
-  "Es bien sabido que el estudio de la física desde la educación básica genera ciertas dificultades en su comprensión y ejecución para muchos estudiantes, sea por la aplicación de conceptos matemáticos, el uso de la lógica, o lo arbitrario que pueda considerarse cada uno de los términos . A su vez, la física es una de las áreas del conocimiento de mayor antigüedad y rigidez en el mundo, y no se han promovido mayores cambios a su enseñanza desde su existencia. Con el auge de la era digital, se presentan oportunidades para cambiar ésta realidad, como lo puede ser ésta.";
+  "Antes de iniciar con la rigurosidad física, es importante manejar con sencillez y naturalidad la conversión de unidades de medida, que nos permitirá solucionar correctamente los ejercicios propuestos, dado que, para llevar a cabo los cálculos, es necesario unificar las unidades de medida cuando sea posible. Una unidad de medida es una convención utilizada para expresar una magnitud específica de una propiedad física, como la longitud, la masa o el tiempo. Éstas unidades de medida proporcionan un marco de referencia común que permite a las personas comunicar y comprender cantidades de manera precisa y consistente.";
+const mainText: string =
+  "La conversión de unidades es el proceso de cambiar una cantidad de una unidad de medida a otra unidad de medida equivalente. Éste proceso resulta de gran utilidad cuando se requiere expresar un valor de forma equivalente con respecto a otra unidad de medida; por ejemplo, si en el ejercicio propuesto se solicita la medida de longitud en metros, pies y pulgadas, pero disponemos de dicho valor en centímetros, se hace necesario llevar a cabo una conversión. Para ésto, se siguen algunos pasos generales:";
+const additionalText: string =
+  "Práctica: Resuelve los siguientes ejercicios de conversión de unidades, considerando las siguientes equivalencias (Se encontrarán en el campo secundario):\n1. Convierte 10 metros a pies.\n2. Convierte 500 centímetros a metros.\n3. Convierte 2 millas a kilómetros.\n4. Convierte 100 pulgadas a centímetros.";
 
-const mainText: string = "Bienvenido a MecaLearn, una aplicación institucional desarrollada con el fin de llevar a cabo un cambio sustancial para modificar positivamente ésta realidad, y facilita el acceso al conocimiento relacionado a la física, con temas básicos planteados desde la sencillez, sin una complejidad teórica innecesaria, y sin la necesidad de tener acceso a internet para hallar el conocimiento y ponerlo en práctica, garantizando la mayor accesibilidad posible como aplicación gratuita de escritorio."
-
+const disclaimer: string = `Algunas de las unidades más comunes para cada magnitud son:
+- Velocidad: Metro por segundo (m/s), kilómetro por hora (km/h).
+- Longitud: Metro (m), centímetro (cm), pulgada (in), pie (ft).
+- Masa: Gramo (g), kilogramo (kg), libra (lb).
+- Tiempo: Segundo (s), minuto (min), hora (h).`;
 ---
 
 <ClassLayout title="Introducción a MecaLearn">
@@ -46,32 +58,30 @@ const mainText: string = "Bienvenido a MecaLearn, una aplicación institucional 
     <!-- First Row: Video and Introduction -->
     <section class="row">
       <!-- Video Section -->
-      <Video
-        url="https://www.youtube.com/embed/ylErHxQjodw?si=vgZosa-a9HzaJmin"
+      <EmbedVideo
+        url="https://www.youtube.com/embed/QeVaK8lDzkQ?si=rdoFdVzUPYq74Uwd"
       />
 
       <!-- Introduction Text -->
       <div class="intro-text">
-        <Heading element={introText} />    
+        <Heading element={introText} />
         <Paragraph text={introductionText} />
       </div>
     </section>
 
-        <Paragraph text={mainText} />
-
+    <Paragraph text={mainText} />
 
     <!-- Second Row: Image Gallery -->
     <section class="image-gallery">
       <Heading element={imageGallery} />
-     <SliderGallery
-     gallery = {slider}
-     ></SliderGallery>
+      <SliderGallery gallery={slider} />
+      <Paragraph text={disclaimer} />
     </section>
 
     <!-- Third Row: Rest of Lecture Content -->
     <section class="rest-of-lecture">
       <Heading element={additionalContent} />
-      <Paragraph text={lorem} />
+      <Paragraph text={additionalText} />
       <!-- <div class="practice">
         <h4>Ejercicio Práctico</h4>
         <p>Escribe un programa que imprima "Hola Mundo". Envía tu código en el formulario de tareas.</p>

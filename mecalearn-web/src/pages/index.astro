@@ -2,6 +2,7 @@
 import type { SubjectCards } from "../types/types";
 import Layout from "../layouts/Layout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
+import ThermoSpecial from "../components/ThermoSpecial.astro";
 
 const cards: SubjectCards[] = [
   {
@@ -40,6 +41,8 @@ const cards: SubjectCards[] = [
     <ul role="list" class="link-Card-grid" style="padding: 15px;">
       <HorizontalCard card={cards} />
     </ul>
+
+    <ThermoSpecial />
   </div>
 
   <main></main>

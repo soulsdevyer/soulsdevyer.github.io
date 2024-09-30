@@ -1,0 +1,73 @@
+<div
+  id="draggablePopup"
+  class="fixed bg-meca-lightBlue p-4 shadow-lg hidden w-[800px] h-[600px] rounded-lg"
+>
+  <div
+    id="draggablePopupHeader"
+    class="bg-meca-mainBlue text-white flex justify-between p-2 cursor-move"
+  >
+    <span>Ventana Emergente (BETA)</span>
+    <button id="closePopup" class="text-white">&times;</button>
+  </div>
+  <div id="popup-content" class="bg-meca-lightestBlue h-full p-4">
+    <p>Contenido interactivo aquí</p>
+  </div>
+</div>
+
+<button id="openPopup" class="bg-meca-mainBlue text-white px-4 py-2 rounded-lg">
+  Abrir ventana emergente
+</button>
+
+<script>
+  // Función para arrastrar el elemento
+  function dragElement(element) {
+    let pos1 = 0,
+      pos2 = 0,
+      pos3 = 0,
+      pos4 = 0;
+    const header = document.getElementById(element.id + "Header");
+
+    if (header) {
+      header.onmousedown = dragMouseDown;
+    } else {
+      element.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+      e = e || window.event;
+      e.preventDefault();
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+      e = e || window.event;
+      e.preventDefault();
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      element.style.top = element.offsetTop - pos2 + "px";
+      element.style.left = element.offsetLeft - pos1 + "px";
+    }
+
+    function closeDragElement() {
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+
+  // Abrir y cerrar la ventana emergente
+  document.getElementById("openPopup").addEventListener("click", function () {
+    document.getElementById("draggablePopup").style.display = "block";
+  });
+
+  document.getElementById("closePopup").addEventListener("click", function () {
+    document.getElementById("draggablePopup").style.display = "none";
+  });
+
+  // Hacer la ventana emergente arrastrable
+  dragElement(document.getElementById("draggablePopup"));
+</script>

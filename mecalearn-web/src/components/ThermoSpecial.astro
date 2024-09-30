@@ -2,18 +2,60 @@
   id="draggablePopup"
   class="fixed bg-meca-lightBlue p-4 shadow-lg hidden w-[800px] h-[600px] rounded-lg"
 >
+  <!-- Encabezado para arrastrar -->
   <div
     id="draggablePopupHeader"
-    class="bg-meca-mainBlue text-white flex justify-between p-2 cursor-move"
+    class="w-full bg-meca-mainBlue text-white px-4 py-2 cursor-move rounded-t-lg"
   >
-    <span>Ventana Emergente (BETA)</span>
-    <button id="closePopup" class="text-white">&times;</button>
+    GeoGebra (BETA)
+    <button id="closePopup" class="float-right text-white">X</button>
   </div>
-  <div id="popup-content" class="bg-meca-lightestBlue h-full p-4">
-    <p>Contenido interactivo aquí</p>
+
+  <!-- Contenido principal de la ventana emergente -->
+  <div class="flex h-full">
+    <!-- Barra lateral de registros -->
+    <div class="bg-meca-mainBlue text-white p-4 w-1/3 rounded-l-lg">
+      <h2 class="font-semibold mb-4">Registro de datos</h2>
+      <ul class="space-y-2 text-sm overflow-y-auto h-[75%]">
+        <li>T: 30°C H: 50%</li>
+        <li>T: 31°C H: 53%</li>
+        <li>T: 32°C H: 48%</li>
+        <li>T: 30°C H: 49%</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+      </ul>
+      <!-- Controles de reproducción -->
+      <div class="flex space-x-4 mt-4">
+        <button
+          class="bg-meca-lightestBlue text-meca-mainBlue px-2 py-1 rounded"
+          ><i class="fa fa-play"></i></button
+        >
+        <button
+          class="bg-meca-lightestBlue text-meca-mainBlue px-2 py-1 rounded"
+          ><i class="fa fa-pause"></i></button
+        >
+        <button
+          class="bg-meca-lightestBlue text-meca-mainBlue px-2 py-1 rounded"
+          ><i class="fa fa-stop"></i></button
+        >
+      </div>
+    </div>
+
+    <!-- Área de contenido principal -->
+    <div class="bg-meca-lightestBlue p-4 w-2/3 rounded-r-lg">
+      <p class="text-sm text-meca-mainBlue">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi.
+        Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla,
+        mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis
+        tellus. Nullam quis imperdiet augue.
+      </p>
+    </div>
   </div>
 </div>
 
+<!-- Botón para abrir la ventana emergente -->
 <button id="openPopup" class="bg-meca-mainBlue text-white px-4 py-2 rounded-lg">
   Abrir ventana emergente
 </button>
@@ -61,7 +103,7 @@
 
   // Abrir y cerrar la ventana emergente
   document.getElementById("openPopup").addEventListener("click", function () {
-    document.getElementById("draggablePopup").style.display = "block";
+    document.getElementById("draggablePopup").style.display = "flex";
   });
 
   document.getElementById("closePopup").addEventListener("click", function () {

@@ -108,89 +108,100 @@
 <script>
   declare const GGBApplet: any;
 
-  function getAppNameById(buttonId: any) {
-    switch (buttonId) {
-      case "graphingButton":
-        return "graphing";
-      case "geometryButton":
-        return "geometry";
-      case "casButton":
-        return "cas";
-      case "3dButton":
-        return "3d";
-      case "scientificButton":
-        return "scientific";
-      default:
-        return "graphing"; // default appName
+  document.addEventListener("DOMContentLoaded", function () {
+    function getAppNameById(buttonId: any) {
+      switch (buttonId) {
+        case "graphingButton":
+          return "graphing";
+        case "geometryButton":
+          return "geometry";
+        case "casButton":
+          return "cas";
+        case "3dButton":
+          return "3d";
+        case "scientificButton":
+          return "scientific";
+        default:
+          return "graphing"; // default appName
+      }
     }
-  }
 
-  document.querySelectorAll("button").forEach((button) => {
-    if (!button.getAttribute("role")) {
-      button.addEventListener("click", function () {
-        const appName = getAppNameById(button.id);
-        const params = {
-          appName: appName,
-          width: 800,
-          height: 600,
-          showToolBar: true,
-          showAlgebraInput: true,
-          showMenuBar: true,
-        };
-        const applet = new GGBApplet(params, true);
-        document.getElementById("draggableGGB").style.display = "block";
-        applet.inject("ggb-element");
+    document.querySelectorAll("button").forEach((button) => {
+      if (!button.getAttribute("role")) {
+        button.addEventListener("click", function () {
+          const appName = getAppNameById(button.id);
+          const params = {
+            appName: appName,
+            width: 800,
+            height: 600,
+            showToolBar: true,
+            showAlgebraInput: true,
+            showMenuBar: true,
+          };
+          const applet = new GGBApplet(params, true);
+
+          const draggableElement = document.getElementById("draggableGGB");
+          if (draggableElement) {
+            draggableElement.style.display = "block";
+            applet.inject("ggb-element");
+          }
+        });
+      }
+    });
+
+    const draggableElement = document.getElementById("draggableGGB");
+    if (draggableElement) {
+      dragElement(draggableElement);
+    }
+
+    function dragElement(element: any) {
+      let pos1 = 0,
+        pos2 = 0,
+        pos3 = 0,
+        pos4 = 0;
+      const header = document.getElementById(element.id + "Header");
+
+      if (header) {
+        header.onmousedown = dragMouseDown;
+      } else {
+        element.onmousedown = dragMouseDown;
+      }
+
+      function dragMouseDown(e: any) {
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+      }
+
+      function elementDrag(e: any) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        element.style.top = element.offsetTop - pos2 + "px";
+        element.style.left = element.offsetLeft - pos1 + "px";
+      }
+
+      function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+      }
+    }
+
+    const closeButton = document.getElementById("closeDial");
+    if (closeButton) {
+      closeButton.addEventListener("click", function () {
+        const draggableElement = document.getElementById("draggableGGB");
+        if (draggableElement) {
+          draggableElement.style.display = "none";
+        }
       });
     }
-  });
-
-  dragElement(document.getElementById("draggableGGB"));
-
-  function dragElement(element: any) {
-    var pos1 = 0,
-      pos2 = 0,
-      pos3 = 0,
-      pos4 = 0;
-    if (document.getElementById(element.id + "Header")) {
-      // if present, the header is where you move the DIV from:
-      document.getElementById(element.id + "Header").onmousedown =
-        dragMouseDown;
-    } else {
-      element.onmousedown = dragMouseDown;
-    }
-
-    function dragMouseDown(e: any) {
-      e = e || window.event;
-      e.preventDefault();
-
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      document.onmouseup = closeDragElement;
-
-      document.onmousemove = elementDrag;
-    }
-
-    function elementDrag(e: any) {
-      e = e || window.event;
-      e.preventDefault();
-
-      pos1 = pos3 - e.clientX;
-      pos2 = pos4 - e.clientY;
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-
-      element.style.top = element.offsetTop - pos2 + "px";
-      element.style.left = element.offsetLeft - pos1 + "px";
-    }
-
-    function closeDragElement() {
-      document.onmouseup = null;
-      document.onmousemove = null;
-    }
-  }
-
-  document.getElementById("closeDial").addEventListener("click", function () {
-    document.getElementById("draggableGGB").style.display = "none";
   });
 </script>
 

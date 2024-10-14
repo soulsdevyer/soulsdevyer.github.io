@@ -10,6 +10,7 @@ import NavSidebar from "../components/Nav-Sidebar.astro";
 import ToolDial from "../components/ToolDial.astro";
 import type { NavItems } from "../types/types";
 
+//A esta lista sólo se añaden los temas generales de la página, ya que en el Sidebar específico de cada tema se muestran las unidades, no los generales
 const sidebarItems: NavItems[] = [
   {
     label: "Introducción a MecaLearn",
@@ -30,6 +31,14 @@ const sidebarItems: NavItems[] = [
   {
     label: "Conversión de Unidades",
     href: "/conversion",
+    iconPath1:
+      "M7.975 11H1V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z",
+    iconPath2:
+      "M5.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 4 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 5.5 0Z",
+  },
+  {
+    label: "Introducción a Termodinámica",
+    href: "/thermodynamics",
     iconPath1:
       "M7.975 11H1V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z",
     iconPath2:

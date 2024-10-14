@@ -1,0 +1,132 @@
+---
+const title = "Termodinámica e IoT";
+let measurements: string[] = ["Conectando al servidor..."]; // Inicializamos con un estado de espera.
+---
+
+<!-- Botón para mostrar la ventana -->
+<button
+  id="open-modal"
+  class="bg-meca-mainBlue text-white font-semibold py-2 px-4 rounded-lg"
+>
+  Mostrar Ventana
+</button>
+
+<!-- Ventana emergente oculta por defecto -->
+<div
+  id="draggable-modal"
+  class="fixed top-16 left-16 w-[600px] bg-white shadow-lg rounded-lg z-50 hidden"
+>
+  <!-- Header de la ventana -->
+  <div
+    id="modal-header"
+    class="flex justify-between items-center bg-meca-mainBlue text-white px-4 py-2 cursor-move rounded-t-lg"
+  >
+    <h2 class="text-lg font-semibold">{title}</h2>
+    <button id="close-modal" class="text-white text-xl">✖</button>
+  </div>
+
+  <!-- Contenido de la ventana -->
+  <div class="flex">
+    <!-- Sección de registro de mediciones -->
+    <div class="w-1/3 bg-meca-mainBlue text-white p-4 rounded-bl-lg">
+      <h3 class="font-semibold mb-2">Registro de Mediciones</h3>
+      <ul id="measurements-list" class="space-y-1">
+        {measurements.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+
+    <!-- Sección de anotaciones -->
+    <div class="w-2/3 p-4">
+      <h3 class="font-semibold mb-2 text-meca-mainBlue">Anotaciones</h3>
+      <textarea
+        class="w-full h-40 border rounded-lg p-2 text-gray-600"
+        placeholder="Escribe tus anotaciones aquí..."></textarea>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("draggable-modal") as HTMLElement;
+  const openModalButton = document.getElementById(
+    "open-modal"
+  ) as HTMLButtonElement;
+  const closeModalButton = document.getElementById(
+    "close-modal"
+  ) as HTMLButtonElement;
+
+  let isDragging = false;
+  let dragOffset = { x: 0, y: 0 };
+  let measurements: string[] = [];
+
+  // Función para actualizar las mediciones en el DOM
+  const updateMeasurements = () => {
+    const measurementsList = document.getElementById(
+      "measurements-list"
+    ) as HTMLElement;
+    measurementsList.innerHTML = measurements
+      .map((item) => `<li>${item}</li>`)
+      .join("");
+  };
+
+  openModalButton.addEventListener("click", () => {
+    modal.style.display = "block"; // Mostrar la ventana
+  });
+
+  closeModalButton.addEventListener("click", () => {
+    modal.style.display = "none"; // Ocultar la ventana
+  });
+
+  document
+    .getElementById("modal-header")
+    ?.addEventListener("mousedown", (e: MouseEvent) => {
+      isDragging = true;
+      const clientX = e.clientX;
+      const clientY = e.clientY;
+
+      dragOffset = {
+        x: modal.offsetLeft - clientX,
+        y: modal.offsetTop - clientY,
+      };
+    });
+
+  document.addEventListener("mousemove", (e: MouseEvent) => {
+    if (isDragging) {
+      modal.style.left = `${e.clientX + dragOffset.x}px`;
+      modal.style.top = `${e.clientY + dragOffset.y}px`;
+    }
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+  });
+
+  // Conexión al WebSocket en localhost:8080
+  const connectWebSocket = () => {
+    const ws = new WebSocket("ws://localhost:8080/arduino");
+
+    ws.onopen = () => {
+      console.log("Conectado al servidor WebSocket");
+    };
+
+    ws.onmessage = (event: MessageEvent) => {
+      const data = event.data as string;
+
+      if (measurements.length >= 5) {
+        measurements.shift(); // Eliminar el elemento más antiguo si hay más de 5
+      }
+      measurements.push(data); // Agregamos la nueva medición
+      updateMeasurements(); // Actualizamos la lista
+    };
+
+    ws.onerror = (error) => {
+      console.error("WebSocket Error:", error);
+    };
+
+    ws.onclose = () => {
+      console.log("Conexión cerrada, intentando reconectar...");
+      setTimeout(connectWebSocket, 5000); // Intentar reconectar después de 5 segundos
+    };
+  };
+
+  connectWebSocket(); // Llamamos a la función para conectarnos al WebSocket
+</script>

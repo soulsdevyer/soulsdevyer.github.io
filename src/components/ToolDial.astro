@@ -1,12 +1,8 @@
----
-
----
-
 <script is:inline src="https://www.geogebra.org/apps/deployggb.js"></script>
 
 <div data-dial-init class="fixed top-6 end-6 group" style="margin-top: 75px;">
   <button
-    id="closeDial"
+    id="closeDial-ggb"
     type="button"
     data-dial-toggle="speed-dial-menu-top-right"
     aria-controls="speed-dial-menu-top-right"
@@ -34,10 +30,8 @@
     class="flex flex-col items-center hidden mt-4 space-y-2"
   >
     <button
-      id="graphingButton"
+      id="graphingButton-ggb"
       type="button"
-      data-tooltip-target="tooltip-print"
-      data-tooltip-placement="left"
       class="flex justify-center items-center w-[52px] h-[52px] text-meca-midBlue hover:text-meca-mainBlue bg-white rounded-full border border-meca-lightBlue dark:border-meca-midBlue shadow-sm dark:hover:text-meca-lightestBlue dark:text-meca-lightBlue hover:bg-meca-lightestBlue dark:bg-meca-secondaryBlue dark:hover:bg-meca-mainBlue focus:ring-4 focus:ring-meca-lightBlue focus:outline-none dark:focus:ring-meca-midBlue"
     >
       <a href="https://www.geogebra.org/calculator" target="_blank">
@@ -50,23 +44,15 @@
         >
           <path d="M5 20h10a1 1 0 0 0 1-1v-5H4v5a1 1 0 0 0 1 1Z"></path>
           <path
-            d="M18 7H2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2v-3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Zm-1-2V2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3h14Z"
+            d="M18 7H2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2v-3a2 2 0 1 1 2-2h12a2 2 0 1 1 2 2v3a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Zm-1-2V2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3h14Z"
           ></path>
         </svg>
       </a>
       <span class="sr-only">GeoGebra</span>
     </button>
-    <div
-      id="tooltip-print"
-      role="tooltip"
-      class="absolute z-10 invisible inline-block w-auto px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-meca-darkBlue rounded-lg shadow-sm opacity-0 tooltip"
-    >
-      GeoGebra
-      <div class="tooltip-arrow" data-popper-arrow></div>
-    </div>
 
     <button
-      id="geometryButton"
+      id="geometryButton-ggb"
       type="button"
       class="flex justify-center items-center w-[52px] h-[52px] text-meca-midBlue hover:text-meca-mainBlue bg-white rounded-full border border-meca-lightBlue dark:border-meca-midBlue shadow-sm dark:hover:text-meca-lightestBlue dark:text-meca-lightBlue hover:bg-meca-lightestBlue dark:bg-meca-secondaryBlue dark:hover:bg-meca-mainBlue focus:ring-4 focus:ring-meca-lightBlue focus:outline-none dark:focus:ring-meca-midBlue"
     >
@@ -74,7 +60,7 @@
     </button>
 
     <button
-      id="casButton"
+      id="casButton-ggb"
       type="button"
       class="flex justify-center items-center w-[52px] h-[52px] text-meca-midBlue hover:text-meca-mainBlue bg-white rounded-full border border-meca-lightBlue dark:border-meca-midBlue shadow-sm dark:hover:text-meca-lightestBlue dark:text-meca-lightBlue hover:bg-meca-lightestBlue dark:bg-meca-secondaryBlue dark:hover:bg-meca-mainBlue focus:ring-4 focus:ring-meca-lightBlue focus:outline-none dark:focus:ring-meca-midBlue"
     >
@@ -82,7 +68,7 @@
     </button>
 
     <button
-      id="3dButton"
+      id="3dButton-ggb"
       type="button"
       class="flex justify-center items-center w-[52px] h-[52px] text-meca-midBlue hover:text-meca-mainBlue bg-white rounded-full border border-meca-lightBlue dark:border-meca-midBlue shadow-sm dark:hover:text-meca-lightestBlue dark:text-meca-lightBlue hover:bg-meca-lightestBlue dark:bg-meca-secondaryBlue dark:hover:bg-meca-mainBlue focus:ring-4 focus:ring-meca-lightBlue focus:outline-none dark:focus:ring-meca-midBlue"
     >
@@ -90,7 +76,7 @@
     </button>
 
     <button
-      id="scientificButton"
+      id="scientificButton-ggb"
       type="button"
       class="flex justify-center items-center w-[52px] h-[52px] text-meca-midBlue hover:text-meca-mainBlue bg-white rounded-full border border-meca-lightBlue dark:border-meca-midBlue shadow-sm dark:hover:text-meca-lightestBlue dark:text-meca-lightBlue hover:bg-meca-lightestBlue dark:bg-meca-secondaryBlue dark:hover:bg-meca-mainBlue focus:ring-4 focus:ring-meca-lightBlue focus:outline-none dark:focus:ring-meca-midBlue"
     >
@@ -98,6 +84,7 @@
     </button>
   </div>
 </div>
+
 <div id="draggableGGB">
   <div id="draggableGGBHeader" class="bg-meca-mainBlue text-white">
     GeoGebra (BETA)
@@ -111,15 +98,15 @@
   document.addEventListener("DOMContentLoaded", function () {
     function getAppNameById(buttonId: any) {
       switch (buttonId) {
-        case "graphingButton":
+        case "graphingButton-ggb":
           return "graphing";
-        case "geometryButton":
+        case "geometryButton-ggb":
           return "geometry";
-        case "casButton":
+        case "casButton-ggb":
           return "cas";
-        case "3dButton":
+        case "3dButton-ggb":
           return "3d";
-        case "scientificButton":
+        case "scientificButton-ggb":
           return "scientific";
         default:
           return "graphing"; // default appName
@@ -127,7 +114,7 @@
     }
 
     document.querySelectorAll("button").forEach((button) => {
-      if (!button.getAttribute("role")) {
+      if (button.id.endsWith("-ggb")) {
         button.addEventListener("click", function () {
           const appName = getAppNameById(button.id);
           const params = {
@@ -193,7 +180,7 @@
       }
     }
 
-    const closeButton = document.getElementById("closeDial");
+    const closeButton = document.getElementById("closeDial-ggb");
     if (closeButton) {
       closeButton.addEventListener("click", function () {
         const draggableElement = document.getElementById("draggableGGB");

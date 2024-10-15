@@ -1,0 +1,260 @@
+---
+import Heading from "../components/Heading.astro";
+import Paragraph from "../components/Paragraph.astro";
+import ClassLayout from "../layouts/ClassLayout.astro";
+import EmbedVideo from "../components/EmbedVideo.astro";
+import SliderGallery from "../components/SliderGallery.astro";
+import type { Heading1 } from "../types/types";
+import type { ImageGallery } from "../types/types";
+
+const introText: Heading1 = {
+  title: "Historia de la Velocidad de la Luz",
+  sub: "Un viaje desde las primeras hipótesis hasta la física moderna",
+};
+
+const firstHypothesisTitle: Heading1 = {
+  title: "Las Primeras Hipótesis: El Debate Entre Newton y Huygens",
+};
+
+const measurementTitle: Heading1 = {
+  title: "La Primera Medición: Ole Rømer y las Lunas de Júpiter",
+};
+
+const experimentsTitle: Heading1 = {
+  title: "El Experimento de Fizeau y la Precisión en el Siglo XIX",
+};
+
+const additionalContent: Heading1 = {
+  title: "Einstein y la Relatividad: La Luz como Constante Universal",
+};
+
+// src/constants/lightSpeedHistory.ts
+
+const lightSpeedHistory = `La velocidad de la luz ha sido uno de los grandes misterios y desafíos científicos a lo largo de la historia. A lo largo de los siglos, su comprensión ha evolucionado desde una noción abstracta hasta convertirse en uno de los pilares de la física moderna. La luz no solo ha fascinado a los científicos, sino que también ha sido clave en el desarrollo de teorías revolucionarias que cambiaron nuestra percepción del universo.`;
+
+const firstHypotheses = `Durante siglos, la velocidad de la luz fue objeto de especulación. En la antigua Grecia, filósofos como Empédocles sugirieron que la luz tenía una velocidad finita, pero Aristóteles argumentó que debía ser infinita. Esta discusión quedó latente durante muchos años, hasta que dos grandes pensadores del siglo XVII, Isaac Newton y Christiaan Huygens, retomaron la cuestión.
+
+Newton creía que la luz estaba formada por partículas que se movían en línea recta, lo que implicaba que su velocidad podía ser infinita o muy grande. Por otro lado, Huygens proponía que la luz era una onda, lo que sugería que se propagaba con una velocidad limitada a través de un medio (como el sonido a través del aire). Este debate sobre la naturaleza de la luz se prolongó durante más de un siglo, hasta que los avances experimentales resolvieron la cuestión.`;
+
+const romerMeasurement = `La primera medición precisa de la velocidad de la luz fue realizada por el astrónomo danés Ole Rømer en 1676. Al observar los eclipses de la luna Ío, una de las lunas de Júpiter, Rømer notó que el tiempo entre eclipses variaba según la posición de la Tierra en su órbita alrededor del Sol. Cuando la Tierra estaba más lejos de Júpiter, los eclipses se retrasaban, y cuando estaba más cerca, se adelantaban. A partir de esta variación, Rømer dedujo que la luz tenía una velocidad finita y calculó su valor en aproximadamente 220,000 kilómetros por segundo, un número cercano al valor actual.`;
+
+const fizeauExperiment = `En el siglo XIX, Armand Fizeau desarrolló un método más preciso para medir la velocidad de la luz utilizando un aparato mecánico. En 1849, Fizeau dirigió un haz de luz hacia un espejo distante, haciéndolo pasar a través de una rueda dentada giratoria. Si la rueda giraba lo suficientemente rápido, la luz que pasaba entre los dientes sería bloqueada en su retorno. A partir de la velocidad de rotación de la rueda y la distancia del espejo, Fizeau midió la velocidad de la luz en aproximadamente 313,000 kilómetros por segundo.
+
+Unos años más tarde, Léon Foucault perfeccionó este experimento usando un método basado en espejos giratorios, lo que le permitió calcular un valor más preciso: 299,796 kilómetros por segundo.`;
+
+const maxwellElectromagneticTheory = `En 1865, el físico escocés James Clerk Maxwell revolucionó nuestra comprensión de la luz al unificar los fenómenos eléctricos y magnéticos en una sola teoría: el electromagnetismo. Maxwell demostró que las ondas de luz eran en realidad ondas electromagnéticas que se propagaban a una velocidad finita en el vacío. Según sus ecuaciones, la velocidad de estas ondas debía ser la misma que la velocidad de la luz, prediciendo así su valor con gran precisión.
+
+La teoría de Maxwell no solo explicaba la naturaleza de la luz como una onda electromagnética, sino que también ayudaba a entender fenómenos como la polarización, la reflexión y la refracción. Esta comprensión marcó el fin del debate sobre si la luz era una onda o una partícula, aunque la cuestión de su naturaleza dual aún quedaba abierta para futuras investigaciones.`;
+
+const einsteinRelativity = `A comienzos del siglo XX, la noción de la luz experimentó una transformación radical gracias a Albert Einstein. En su teoría de la relatividad especial (1905), Einstein postuló que la velocidad de la luz en el vacío es una constante universal, independiente del movimiento del observador o de la fuente de luz. Este concepto fue revolucionario, ya que implicaba que nada en el universo puede viajar más rápido que la luz, con una velocidad exacta de 299,792,458 metros por segundo.
+
+La teoría de la relatividad especial trajo consigo consecuencias sorprendentes, como la dilatación temporal y la contracción del espacio a velocidades cercanas a la de la luz. Esta teoría también redefinió el concepto de masa y energía con la famosa ecuación E = mc², que relaciona la energía con la masa y la velocidad de la luz.`;
+
+const michelsonMorleyExperiment = `A fines del siglo XIX, los científicos creían que la luz debía propagarse a través de un medio, conocido como éter luminífero, que llenaba todo el espacio. Sin embargo, el experimento realizado por Albert Michelson y Edward Morley en 1887 demostró que no había variaciones en la velocidad de la luz debido al movimiento de la Tierra, lo que implicaba que el éter no existía.
+
+Este experimento fue crucial para el desarrollo de la relatividad especial, ya que apoyaba la idea de que la luz no necesita un medio para propagarse y que su velocidad es la misma en todas las direcciones, independientemente del movimiento del observador.`;
+
+const cosmicLimitPhotons = `Con el avance de la física cuántica, se comprendió que la luz tiene una naturaleza dual: puede comportarse como una onda electromagnética y como un conjunto de partículas llamadas fotones. Max Planck y Einstein introdujeron el concepto de cuantización, lo que llevó a la comprensión de que la luz está compuesta por paquetes discretos de energía. Esta idea fue clave para el desarrollo de la mecánica cuántica, que revolucionó el estudio de las partículas subatómicas.
+
+La velocidad de los fotones en el vacío sigue siendo el límite de velocidad cósmico, un valor que ha sido medido con gran precisión. Este límite establece fronteras fundamentales en la física, desde la expansión del universo hasta los límites de la computación cuántica.`;
+
+const conclusionsCurrentChallenges = `Hoy en día, la velocidad de la luz es uno de los valores fundamentales más importantes en la física. Su constancia en el vacío es crucial para numerosas teorías, desde la relatividad general hasta los modelos cosmológicos que explican la expansión del universo. Sin embargo, todavía hay muchos misterios por resolver, como el comportamiento de la luz en los agujeros negros, donde la teoría de la relatividad predice efectos extraordinarios.
+
+El estudio de la velocidad de la luz no ha terminado, y sigue siendo un área activa de investigación. A medida que avanzamos hacia nuevos horizontes, como la teoría cuántica de la gravedad o la búsqueda de formas más rápidas de comunicación a través de la tecnología, la comprensión de este fenómeno seguirá siendo clave para el progreso científico y tecnológico.`;
+
+const slider: ImageGallery = {
+  img: "../../assets/light/newton-huygens.png",
+  img1: "../../assets/light/roemer-experiment.jpg",
+  img2: "../../assets/light/fizeau.jpg",
+
+  cap: "Newton vs Huygens: La disputa sobre la naturaleza de la luz",
+  cap1: "Ole Rømer: Observaciones de Ío para medir la velocidad de la luz",
+  cap2: "Experimento de Fizeau: Innovador método mecánico para medir la luz",
+};
+
+const introductionText: string =
+  "La velocidad de la luz ha sido uno de los grandes misterios científicos, desde las primeras especulaciones filosóficas hasta las mediciones experimentales más precisas. Esta velocidad, clave en teorías físicas modernas, ha jugado un papel fundamental en nuestra comprensión del universo.";
+const firstHypothesisText: string =
+  "Durante siglos, se debatió si la luz viajaba instantáneamente o a una velocidad finita. Filósofos como Empédocles argumentaron que tenía una velocidad finita, pero fue en el siglo XVII cuando Newton y Huygens disputaron si la luz era una partícula o una onda. Huygens creía que la luz era una onda con una velocidad finita, mientras que Newton la veía como partículas moviéndose extremadamente rápido.";
+const measurementText: string =
+  "Ole Rømer fue el primero en medir con precisión la velocidad de la luz en 1676, al observar los eclipses de las lunas de Júpiter. Su estimación de 220,000 km/s fue un avance significativo en la historia de la física.";
+const experimentsText: string =
+  "En el siglo XIX, Fizeau midió con mayor precisión la velocidad de la luz utilizando un aparato con una rueda dentada y un espejo distante. Su trabajo fue perfeccionado por Foucault, lo que permitió medir un valor cercano al aceptado hoy en día: 299,796 km/s.";
+const relativityText: string =
+  "En 1905, Albert Einstein propuso que la velocidad de la luz es una constante universal, lo que llevó a la formulación de la teoría de la relatividad especial. Este concepto cambió nuestra comprensión del tiempo y el espacio, y sigue siendo fundamental en la física moderna.";
+---
+
+<ClassLayout title="Historia de la Velocidad de la Luz">
+  <main>
+    <!-- First Row: Video and Introduction -->
+    <section class="row">
+      <!-- Video Section -->
+      <EmbedVideo url="https://www.youtube.com/embed/dQw4w9WgXcQ" />
+
+      <!-- Introduction Text -->
+      <div class="intro-text">
+        <Heading element={introText} />
+        <Paragraph text={introductionText} />
+      </div>
+    </section>
+
+    <!-- First Hypothesis Section -->
+    <section class="first-hypothesis">
+      <Heading element={firstHypothesisTitle} />
+      <Paragraph text={firstHypothesisText} />
+      <Paragraph text={firstHypotheses} />
+      <!-- New content here -->
+
+      <SliderGallery gallery={slider} />
+    </section>
+
+    <!-- Measurement Section -->
+    <section class="measurement">
+      <Heading element={measurementTitle} />
+      <Paragraph text={measurementText} />
+      <Paragraph text={romerMeasurement} />
+      <!-- New content here -->
+
+      <!-- Table for Measurement -->
+      <table class="table-measurement">
+        <thead>
+          <tr>
+            <th>Científico</th>
+            <th>Método</th>
+            <th>Resultado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ole Rømer</td>
+            <td>Observación de las lunas de Júpiter</td>
+            <td>220,000 km/s</td>
+          </tr>
+          <tr>
+            <td>Armand Fizeau</td>
+            <td>Rueda dentada y espejo distante</td>
+            <td>313,000 km/s</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <Paragraph text={fizeauExperiment} />
+      <!-- New content here -->
+    </section>
+
+    <!-- Additional Content: Relativity -->
+    <section class="additional-content">
+      <Heading element={additionalContent} />
+      <Paragraph text={relativityText} />
+      <Paragraph text={einsteinRelativity} />
+      <!-- New content here -->
+      <Paragraph text={maxwellElectromagneticTheory} />
+      <!-- New content here -->
+    </section>
+
+    <!-- Michelson-Morley Experiment Section -->
+    <section class="michelson-morley-experiment">
+      <Heading element={{ title: "El Experimento de Michelson-Morley" }} />
+      <Paragraph text={michelsonMorleyExperiment} />
+      <!-- New content here -->
+    </section>
+
+    <!-- Cosmic Limit Section -->
+    <section class="cosmic-limit">
+      <Heading element={{ title: "El Límite Cósmico de los Fotones" }} />
+      <Paragraph text={cosmicLimitPhotons} />
+      <!-- New content here -->
+    </section>
+
+    <!-- Conclusions Section -->
+    <section class="conclusions">
+      <Heading element={{ title: "Conclusiones y Desafíos Actuales" }} />
+      <Paragraph text={conclusionsCurrentChallenges} />
+      <!-- New content here -->
+    </section>
+  </main>
+
+  <style>
+    main {
+      padding: 2rem;
+      font-family: "Arial", sans-serif;
+      color: #333;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* First row: Video and Introduction */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .intro-text {
+      flex: 1;
+      min-width: 300px;
+      max-width: 100%;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    /* First Hypothesis Section */
+    .first-hypothesis {
+      margin-bottom: 3rem;
+    }
+
+    /* Measurement Section */
+    .measurement {
+      margin-bottom: 3rem;
+    }
+
+    .table-measurement {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+
+    .table-measurement th,
+    .table-measurement td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .table-measurement th {
+      background-color: #f2f2f2;
+    }
+
+    /* Additional Content */
+    .additional-content {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    /* Michelson-Morley Experiment */
+    .michelson-morley-experiment {
+      margin-top: 1.5rem;
+    }
+
+    /* Cosmic Limit */
+    .cosmic-limit {
+      margin-top: 1.5rem;
+    }
+
+    /* Conclusions Section */
+    .conclusions {
+      margin-top: 1.5rem;
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</ClassLayout>

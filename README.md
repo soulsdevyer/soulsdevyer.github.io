@@ -71,10 +71,9 @@ Sigue los nombres en inglés para las constantes y variables.
 Mantén el estilo de código consistente con los estándares de Tailwind y las prácticas de MecaLearn.
 Utiliza TypeScript para mantener la tipificación en el código.
 Estructura del Proyecto
+
 Este es un esquema general de los directorios del proyecto:
 
-csharp
-Copy code
 mecalearn/
 ├── public/ # Archivos públicos
 ├── src/
@@ -85,6 +84,7 @@ mecalearn/
 │ └── utils/ # Utilidades y funciones auxiliares
 ├── package.json # Dependencias y scripts de npm
 └── README.md # Documentación principal
+
 Guía de Estilo
 Para asegurar la consistencia en todo el código, MecaLearn sigue ciertas pautas de estilo:
 

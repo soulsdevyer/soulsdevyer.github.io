@@ -22,7 +22,8 @@
   <a href="#license">Licencia</a>
 </p>
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+<img src="public/assets/misc/screenshot.png">
+<img src="public/assets/misc/screenshot1.png">
 
 ## Características
 
@@ -84,28 +85,22 @@ MecaLearn utiliza los siguientes paquetes y tecnologías para mantenerse y desar
 - [Electron](http://electron.atom.io/)
 - [Node.js](https://nodejs.org/)
 
-## Extras
+<!-- ## Extras -->
 
-<!-- [markdownify-web](https://github.com/amitmerchant1990/markdownify-web) - Web version of Markdownify -->
+<!-- [Link](url)-->
 
 ## Contribución
 
-<a href="https://buymeacoffee.com/amitmerchant" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+<p> Próximamente encontrarás una guía detallada sobre cómo contribuir a este proyecto, incluyendo 
+<strong> lineamientos y recursos, junto con las reglas de la comunidad.</strong></p>
 
-<p>Or</p>
+<!-- <a href="https://buymeacoffee.com/amitmerchant" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 <a href="https://www.patreon.com/amitmerchant">
 	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
+</a> -->
 
-<!-- ## You may also like...
-
-- [Pomolectron](https://github.com/amitmerchant1990/pomolectron) - A pomodoro app
-- [Correo](https://github.com/amitmerchant1990/correo) - A menubar/taskbar Gmail App for Windows and macOS -->
-
-## Licencia
-
-MIT
+## Licencia: MIT
 
 ---
 

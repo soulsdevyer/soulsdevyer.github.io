@@ -173,6 +173,13 @@ const relativityText: string =
       <Heading element={{ title: "Conclusiones y Desafíos Actuales" }} />
       <Paragraph text={conclusionsCurrentChallenges} />
       <!-- New content here -->
+      <div class="pptx-container">
+        <iframe
+          src="https://gamma.app/embed/djoy1nj97v4tu6n"
+          style="width: 960px;  height: 569px"
+          allow="fullscreen"
+          title="Historia de la Velocidad de la Luz"></iframe>
+      </div>
     </section>
   </main>
 
@@ -250,6 +257,15 @@ const relativityText: string =
     /* Conclusions Section */
     .conclusions {
       margin-top: 1.5rem;
+    }
+
+    .pptx-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
     }
 
     /* Responsive design for smaller screens */
